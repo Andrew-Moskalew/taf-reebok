@@ -3,7 +3,7 @@ package by.itacademy.moskalew.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ReebokPage {
+public class ReebokLoginPage {
     private String buttonAccount = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  profile-icon--r3f5X']";
     private String buttonLogin = "//button[@class='btn--1eE4Z theme-rr-navy--3ttBH size-small--1XFhu checkout-details-reviewbutton--gQTO4']";
     private String inputEmail = "//input[@class='textbox-input--jX6cr' and @name='email']";
@@ -13,7 +13,7 @@ public class ReebokPage {
     private String errorMassageLoginForm = "//span[@class='registerForm-LoginError--1mbUB']";
     private WebDriver driver;
 
-    public ReebokPage(WebDriver driver) {
+    public ReebokLoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
