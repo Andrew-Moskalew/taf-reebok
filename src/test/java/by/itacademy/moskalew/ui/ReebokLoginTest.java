@@ -9,9 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ReebokLoginTest {
-    WebDriver driver;
-    ReebokLoginPage reebokLoginPage;
 
+    ReebokLoginPage reebokLoginPage;
+    WebDriver driver;
     @BeforeEach
     public void testStart() {
         driver = new ChromeDriver();
