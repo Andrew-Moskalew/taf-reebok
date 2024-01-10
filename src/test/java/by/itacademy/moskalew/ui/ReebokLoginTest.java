@@ -1,12 +1,12 @@
 package by.itacademy.moskalew.ui;
 
+import by.itacademy.moskalew.domain.MyDriver;
 import by.itacademy.moskalew.pages.ReebokLoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ReebokLoginTest {
 
@@ -14,15 +14,13 @@ public class ReebokLoginTest {
     WebDriver driver;
     @BeforeEach
     public void testStart() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.reebok.com");
-        reebokLoginPage = new ReebokLoginPage(driver);
+        MyDriver.getDriver().get("https://www.reebok.com");
+        reebokLoginPage = new ReebokLoginPage();
     }
 
     @AfterEach
     public void testFinish() {
-        driver.quit();
+        MyDriver.quitDriver();
     }
 
     @Test

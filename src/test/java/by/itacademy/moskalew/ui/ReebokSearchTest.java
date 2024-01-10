@@ -1,5 +1,6 @@
 package by.itacademy.moskalew.ui;
 
+import by.itacademy.moskalew.domain.MyDriver;
 import by.itacademy.moskalew.pages.ReebokSearchPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,15 +18,13 @@ public class ReebokSearchTest {
 
     @BeforeEach
     public void testStart() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.reebok.com");
-        reebokSearchPage = new ReebokSearchPage(driver);
+        MyDriver.getDriver().get("https://www.reebok.com");
+        reebokSearchPage = new ReebokSearchPage();
     }
 
     @AfterEach
     public void testFinish() {
-        driver.quit();
+        MyDriver.quitDriver();
     }
 
     @Test

@@ -1,5 +1,6 @@
 package by.itacademy.moskalew.pages;
 
+import by.itacademy.moskalew.domain.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,8 +14,8 @@ public class ReebokLoginPage {
     private String errorMassageLoginForm = "//span[@class='registerForm-LoginError--1mbUB']";
     private WebDriver driver;
 
-    public ReebokLoginPage(WebDriver driver) {
-        this.driver = driver;
+    public ReebokLoginPage() {
+        this.driver = MyDriver.getDriver();
     }
 
     public void clickButtonAccount() {

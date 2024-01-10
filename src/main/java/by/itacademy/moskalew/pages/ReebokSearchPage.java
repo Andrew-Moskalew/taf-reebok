@@ -1,5 +1,6 @@
 package by.itacademy.moskalew.pages;
 
+import by.itacademy.moskalew.domain.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,8 +14,8 @@ public class ReebokSearchPage {
     private String searchProductCardName = "//p[@class='tag_p--1xo5V  product-card-name--9ffy7']";
     private WebDriver driver;
 
-    public ReebokSearchPage(WebDriver driver) {
-        this.driver = driver;
+    public ReebokSearchPage() {
+        this.driver = MyDriver.getDriver();
     }
 
     public void clickButtonSearch() {
