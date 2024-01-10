@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.ui;
 
-import by.itacademy.moskalew.domain.MyDriver;
+import by.itacademy.moskalew.driver.MyDriver;
 import by.itacademy.moskalew.pages.ReebokSearchPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -29,26 +29,26 @@ public class ReebokSearchTest {
 
     @Test
     public void testSearch() throws InterruptedException {
-        reebokSearchPage.sendKeysInputSearch("shoes bb4500");
+        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
         Thread.sleep(1000);
         reebokSearchPage.clickButtonSearch();
         Thread.sleep(3000);
-        Assertions.assertEquals("”SHOES BB4500”", reebokSearchPage.getTextSearchResult());
+        Assertions.assertEquals("”FURY 95 SHOES”", reebokSearchPage.getTextSearchResult());
     }
 
     @Test
     public void testSearchItemsList() throws InterruptedException {
-        reebokSearchPage.sendKeysInputSearch("shoes bb4500");
+        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
         Thread.sleep(1000);
         reebokSearchPage.clickButtonSearch();
         Thread.sleep(3000);
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Assertions.assertEquals(16, searchItems.size());
+        Assertions.assertEquals(3, searchItems.size());
     }
 
     @Test
     public void testSearchItemsListCompare() throws InterruptedException {
-        reebokSearchPage.sendKeysInputSearch("shoes bb4500");
+        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
         Thread.sleep(1000);
         reebokSearchPage.clickButtonSearch();
         Thread.sleep(3000);
@@ -58,22 +58,9 @@ public class ReebokSearchTest {
             searchItemsString.add(searchItem.getText());
         }
         List<String> expectedSearchItemsList = new ArrayList<>();
-        expectedSearchItemsList.add("Reebok Royal BB4500 Hi 2 Basketball Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Men'S Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Men'S Shoes");
-        expectedSearchItemsList.add("Royal BB4500 Hi 2.0 Men'S Shoes");
-        expectedSearchItemsList.add("Reebok Royal BB4500 H2 XE Men'S Shoes");
-        expectedSearchItemsList.add("Reebok Royal BB4500 H2 XE Men'S Shoes");
-        expectedSearchItemsList.add("Reebok Royal BB4500 Hi 2 Basketball Shoes");
-        expectedSearchItemsList.add("Reebok Royal BB4500 Hi 2 Basketball Shoes");
-        expectedSearchItemsList.add("Reebok Royal BB4500 Hi 2 Basketball Shoes");
-        expectedSearchItemsList.add("Reebok BB4500 Court Shoes - Preschool");
-        expectedSearchItemsList.add("Reebok BB4500 Court Shoes - Preschool");
-        expectedSearchItemsList.add("BB4500 Court Shoes - Preschool");
-        expectedSearchItemsList.add("BB4500 Court Shoes - Preschool");
+        expectedSearchItemsList.add("Happy99 Instapump Fury 95 Shoes");
+        expectedSearchItemsList.add("Happy99 Instapump Fury 95 Shoes");
+        expectedSearchItemsList.add("Harry Potter Voldemort Instapump Fury 95 Shoes");
         Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
     }
 

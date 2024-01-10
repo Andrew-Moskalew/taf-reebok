@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.pages;
 
-import by.itacademy.moskalew.domain.MyDriver;
+import by.itacademy.moskalew.driver.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

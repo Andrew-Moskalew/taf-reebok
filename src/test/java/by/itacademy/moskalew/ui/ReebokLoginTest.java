@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.ui;
 
-import by.itacademy.moskalew.domain.MyDriver;
+import by.itacademy.moskalew.driver.MyDriver;
 import by.itacademy.moskalew.pages.ReebokLoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
