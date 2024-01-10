@@ -1,5 +1,6 @@
 package by.itacademy.moskalew.ui;
 
+import by.itacademy.moskalew.domain.RandomUserData;
 import by.itacademy.moskalew.driver.MyDriver;
 import by.itacademy.moskalew.pages.ReebokLoginPage;
 import org.junit.jupiter.api.AfterEach;
@@ -44,7 +45,7 @@ public class ReebokLoginTest {
     public void testReebokComInvalidEmail() throws InterruptedException {
         reebokLoginPage.clickButtonAccount();
         Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputEmail("Invalid Email");
+        reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomInvalidEmail());
         reebokLoginPage.clickInputPassword();
         Assertions.assertEquals("Please enter email in valid format", reebokLoginPage.getTextErrorMassageEmail());
     }
@@ -98,7 +99,7 @@ public class ReebokLoginTest {
     public void testReebokComValidValues() throws InterruptedException {
         reebokLoginPage.clickButtonAccount();
         Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputEmail("email@email.com");
+        reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomValidEmail());
         reebokLoginPage.sendKeysInputPassword("AAaa11@@");
         reebokLoginPage.clickButtonLogin();
         Thread.sleep(1000);
