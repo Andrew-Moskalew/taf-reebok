@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 public class ReebokLoginTest {
 
     ReebokLoginPage reebokLoginPage;
-    WebDriver driver;
     @BeforeEach
     public void testStart() {
         MyDriver.getDriver().get("https://www.reebok.com");
