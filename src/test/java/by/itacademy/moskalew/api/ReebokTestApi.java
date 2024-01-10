@@ -1,7 +1,7 @@
 package by.itacademy.moskalew.api;
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
