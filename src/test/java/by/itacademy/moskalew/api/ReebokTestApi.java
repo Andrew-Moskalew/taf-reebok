@@ -9,13 +9,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class ReebokTestApi {
     String url = "https://www.reebok.com/graphql";
-    String email = "fshdjgdj@gmail.com";
-    String password = "11aaAA@@";
-    String bodyAsString = "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
-            " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
-            " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
-            "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-            ":{\"email\":\"" + email + "\",\"password\":\"" + password + "\"}}";
 
     @Test
     public void testLoginWithValidValues() {
@@ -28,7 +21,7 @@ public class ReebokTestApi {
 
     @Test
     public void testLoginPasswordWithoutUpperCaseChars() {
-        given().log().all().body(RandomUserData.getBodyWithPasswordPasswordWithoutUpperCaseChars()).
+        given().log().all().body(RandomUserData.getBodyPasswordWithoutUpperCaseChars()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
