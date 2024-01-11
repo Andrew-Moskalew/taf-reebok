@@ -20,7 +20,7 @@ public class RandomUserData {
     }
 
 
-    public static String generateValidPassword() {
+    public static String getRandomValidPassword() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -51,7 +51,7 @@ public class RandomUserData {
         return password;
     }
 
-    public static String generatePasswordWithoutLowerCaseChars() {
+    public static String getRandomPasswordWithoutLowerCaseChars() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData upperCaseChars = EnglishCharacterData.UpperCase;
         CharacterRule upperCaseRule = new CharacterRule(upperCaseChars);
@@ -78,7 +78,7 @@ public class RandomUserData {
         return password;
     }
 
-    public static String generatePasswordWithoutUpperCaseChars() {
+    public static String getRandomPasswordWithoutUpperCaseChars() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -105,7 +105,7 @@ public class RandomUserData {
         return password;
     }
 
-    public static String generatePasswordWithoutDigits() {
+    public static String getRandomPasswordWithoutDigits() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -132,7 +132,7 @@ public class RandomUserData {
         return password;
     }
 
-    public static String generatePasswordWithoutSplChars() {
+    public static String getRandomPasswordWithoutSplChars() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -151,7 +151,7 @@ public class RandomUserData {
         return password;
     }
 
-    public static String generateInvalidLengthPassword() {
+    public static String getRandomInvalidLengthPassword() {
         PasswordGenerator gen = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -187,7 +187,7 @@ public class RandomUserData {
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.generateValidPassword() + "\"}}";
+                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomValidPassword() + "\"}}";
         return result;
     }
 
@@ -196,7 +196,7 @@ public class RandomUserData {
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.generatePasswordWithoutLowerCaseChars() + "\"}}";
+                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomPasswordWithoutLowerCaseChars() + "\"}}";
         return result;
     }
 
@@ -205,7 +205,7 @@ public class RandomUserData {
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.generatePasswordWithoutUpperCaseChars() + "\"}}";
+                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomPasswordWithoutUpperCaseChars() + "\"}}";
         return result;
     }
 
@@ -214,7 +214,7 @@ public class RandomUserData {
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.generatePasswordWithoutDigits() + "\"}}";
+                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomPasswordWithoutDigits() + "\"}}";
         return result;
     }
 
@@ -223,7 +223,7 @@ public class RandomUserData {
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.generatePasswordWithoutSplChars() + "\"}}";
+                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomPasswordWithoutSplChars() + "\"}}";
         return result;
     }
 
