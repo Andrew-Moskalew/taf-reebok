@@ -7,15 +7,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class ReebokLoginTest {
 
     ReebokLoginPage reebokLoginPage;
+
     @BeforeEach
     public void testStart() {
-        MyDriver.getDriver().get("https://www.reebok.com");
         reebokLoginPage = new ReebokLoginPage();
+        MyDriver.getDriver().get(reebokLoginPage.getUrl());
     }
 
     @AfterEach
@@ -24,86 +29,96 @@ public class ReebokLoginTest {
     }
 
     @Test
-    public void testReebokComEmptyEmail() throws InterruptedException {
+    public void testReebokComEmptyEmail() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
         reebokLoginPage.clickInputEmail();
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals("Please enter your email", reebokLoginPage.getTextErrorMassageEmail());
+        Assertions.assertEquals("Please enter your email", reebokLoginPage.getTextErrorMessageEmail());
     }
 
     @Test
-    public void testReebokComEmptyPassword() throws InterruptedException {
+    public void testReebokComEmptyPassword() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
         reebokLoginPage.clickInputPassword();
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter your password", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter your password", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComInvalidEmail() throws InterruptedException {
+    public void testReebokComInvalidEmail() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
         reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomInvalidEmail());
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals("Please enter email in valid format", reebokLoginPage.getTextErrorMassageEmail());
+        Assertions.assertEquals("Please enter email in valid format", reebokLoginPage.getTextErrorMessageEmail());
     }
 
     @Test
-    public void testReebokComInvalidPasswordWithoutNumber() throws InterruptedException {
+    public void testReebokComInvalidPasswordWithoutDigits() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputPassword("AAaa@@@@");
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutDigits());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComInvalidPasswordWithoutSpecChar() throws InterruptedException {
+    public void testReebokComInvalidPasswordWithoutSplChars() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputPassword("AAaa1111");
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutSplChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComInvalidPasswordWithoutLowercaseLetter() throws InterruptedException {
+    public void testReebokComInvalidPasswordWithoutLowerCaseChars() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputPassword("AAAA11@@");
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutLowerCaseChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComInvalidPasswordWithoutUppercaseLetter() throws InterruptedException {
+    public void testReebokComInvalidPasswordWithoutUpperCaseChars() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputPassword("aaaa11@@");
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutUpperCaseChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComInvalidPasswordTooShort() throws InterruptedException {
+    public void testReebokComInvalidLengthPassword() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
-        reebokLoginPage.sendKeysInputPassword("AAaa11@");
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomInvalidLengthPassword());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
     @Test
-    public void testReebokComValidValues() throws InterruptedException {
+    public void testReebokComValidValues() {
         reebokLoginPage.clickButtonAccount();
-        Thread.sleep(2000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
         reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomValidEmail());
-        reebokLoginPage.sendKeysInputPassword("AAaa11@@");
+        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomValidPassword());
         reebokLoginPage.clickButtonLogin();
-        Thread.sleep(1000);
-        Assertions.assertEquals("Incorrect email/password – please check and retry", reebokLoginPage.getTextErrorMassageLoginForm());
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getErrorMessageloginForm()));
+        Assertions.assertEquals("Incorrect email/password – please check and retry", reebokLoginPage.getTextErrorMessageLoginForm());
     }
 
 }

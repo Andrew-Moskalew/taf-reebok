@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +19,9 @@ public class ReebokSearchTest {
 
     @BeforeEach
     public void testStart() {
-        MyDriver.getDriver().get("https://www.reebok.com");
         reebokSearchPage = new ReebokSearchPage();
-    }
+        MyDriver.getDriver().get(reebokSearchPage.getUrl());
+            }
 
     @AfterEach
     public void testFinish() {
@@ -26,30 +29,36 @@ public class ReebokSearchTest {
     }
 
     @Test
-    public void testSearch() throws InterruptedException {
+    public void testSearch() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        Thread.sleep(1000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        Thread.sleep(3000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         Assertions.assertEquals("”FURY 95 SHOES”", reebokSearchPage.getTextSearchResult());
     }
 
     @Test
-    public void testSearchItemsList() throws InterruptedException {
+    public void testSearchItemsList() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        Thread.sleep(1000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        Thread.sleep(3000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         Assertions.assertEquals(3, searchItems.size());
     }
 
     @Test
-    public void testSearchItemsListCompare() throws InterruptedException {
+    public void testSearchItemsListCompare() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        Thread.sleep(1000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        Thread.sleep(3000);
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         List<String> searchItemsString = new ArrayList<>();
         for (WebElement searchItem : searchItems) {
