@@ -98,11 +98,11 @@ public class ReebokTestApi {
                         " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                         " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                         "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                        ":{\"email\":\"" + null + "\",\"password\":\"" + password + "\"}}").
+                        ":{\"email\":null,\"password\":\"" + password + "\"}}").
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Variable \\\"$email\\\" of non-null type \\\"String!\\\" must not be null."));
+                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" of non-null type \"String!\" must not be null."));
     }
 
     @Test
@@ -113,11 +113,11 @@ public class ReebokTestApi {
                         " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                         " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                         "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                        ":{\"email\":\"" + email + "\",\"password\":\"" + password + "\"}}").
+                        ":{\"email\":123,\"password\":\"" + password + "\"}}").
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("\"Variable \\\"$email\\\" got invalid value 123; Expected type String. String cannot represent a non string value: 123"));
+                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" got invalid value 123; Expected type String. String cannot represent a non string value: 123"));
     }
 
     @Test
