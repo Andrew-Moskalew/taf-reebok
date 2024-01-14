@@ -21,7 +21,7 @@ public class RandomUserData {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@!#$%&";
         String password = RandomStringUtils.random(8, characters);
 
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@!#$%&])(?=\\S+$).{8,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@!#$%&])(?=\\S+$).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 
@@ -36,7 +36,7 @@ public class RandomUserData {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@!#$%&";
         String password = RandomStringUtils.random(8, characters);
 
-        String regex = "^(?=.*[A-Z])(?=.*[@!#$%&])(?=\\S+$).{8,}$";
+        String regex = "^(?=.*[A-Z])(?=.*[@!#$%&])(?=.*[0-9])(?=\\S+$).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 
@@ -51,7 +51,7 @@ public class RandomUserData {
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789@!#$%&";
         String password = RandomStringUtils.random(8, characters);
 
-        String regex = "^(?=.*[a-z])(?=.*[@!#$%&])(?=\\S+$).{8,}$";
+        String regex = "^(?=.*[a-z])(?=.*[@!#$%&])(?=.*[0-9])(?=\\S+$).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 
@@ -81,7 +81,7 @@ public class RandomUserData {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         String password = RandomStringUtils.random(8, characters);
 
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=\\S+$).{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 
@@ -96,7 +96,7 @@ public class RandomUserData {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@!#$%&";
         String password = RandomStringUtils.random(7, characters);
 
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@!#$%&])(?=\\S+$).{7,}$";
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@!#$%&])(?=\\S+$).{7,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
 

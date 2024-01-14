@@ -70,6 +70,8 @@ public class ReebokLoginPage {
     }
 
     public String getTextErrorMessageLoginForm() {
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getErrorMessageloginForm()));
         return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
     }
 
