@@ -50,12 +50,8 @@ public class ReebokLoginTest {
 
     @Test
     public void testReebokComValidValues() {
-        reebokLoginPage.clickButtonAccount();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getHeaderLogin()));
-        reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomValidEmail());
-        reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomValidPassword());
-        reebokLoginPage.clickButtonLogin();
+        reebokLoginPage.openLoginForm();
+        reebokLoginPage.fillLoginFormAndClickSubmit(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword());
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(reebokLoginPage.getErrorMessageloginForm()));
         Assertions.assertEquals("Incorrect email/password – please check and retry", reebokLoginPage.getTextErrorMessageLoginForm());

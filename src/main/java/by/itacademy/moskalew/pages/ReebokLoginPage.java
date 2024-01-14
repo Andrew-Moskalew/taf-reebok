@@ -1,8 +1,13 @@
 package by.itacademy.moskalew.pages;
 
+import by.itacademy.moskalew.domain.RandomUserData;
 import by.itacademy.moskalew.driver.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ReebokLoginPage {
     private String buttonAccount = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  profile-icon--r3f5X']";
@@ -42,7 +47,7 @@ public class ReebokLoginPage {
 
     public void clickButtonLogin() {
         driver.findElement(By.xpath(buttonLogin)).click();
-    }
+            }
 
     public void sendKeysInputEmail(String email) {
         driver.findElement(By.xpath(inputEmail)).sendKeys(email);
@@ -68,4 +73,19 @@ public class ReebokLoginPage {
         return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
     }
 
+    public void fillLoginForm(String email, String password) {
+        sendKeysInputEmail(email);
+        sendKeysInputPassword(password);
+    }
+
+    public void fillLoginFormAndClickSubmit(String email, String password) {
+        fillLoginForm(email,password);
+        clickButtonLogin();
+    }
+
+    public void openLoginForm() {
+        clickButtonAccount();
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getHeaderLogin()));
+    }
 }
