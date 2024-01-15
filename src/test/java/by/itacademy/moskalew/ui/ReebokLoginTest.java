@@ -99,5 +99,4 @@ public class ReebokLoginTest {
         Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
     }
 
-
 }
