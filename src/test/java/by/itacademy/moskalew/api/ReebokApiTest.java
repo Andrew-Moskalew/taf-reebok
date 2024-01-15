@@ -14,7 +14,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginValidValues() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -23,7 +23,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginInvalidEmail() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomInvalidEmail(), RandomUserData.getRandomValidPassword()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomInvalidEmail(), RandomUserData.getRandomValidPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -33,7 +33,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutUpperCaseChars() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutUpperCaseChars()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutUpperCaseChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -42,7 +42,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutLowerCaseChars() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutLowerCaseChars()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutLowerCaseChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -51,7 +51,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutDigits() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutDigits()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutDigits()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -60,7 +60,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutSplChars() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutSplChars()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutSplChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -69,7 +69,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginInvalidLengthPassword() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomInvalidLengthPassword()))
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomInvalidLengthPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -78,7 +78,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginWithEmptyValues() {
-        given().log().all().body(BodyGenerator.getBody("", ""))
+        given().body(BodyGenerator.getBody("", ""))
                 .header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -87,7 +87,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginEmailIsNull() {
-        given().log().all().body(BodyGenerator.getBody(null, RandomUserData.getRandomValidPassword())).
+        given().body(BodyGenerator.getBody(null, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -96,7 +96,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordIsNull() {
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), null)).
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), null)).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -106,7 +106,7 @@ public class ReebokApiTest {
     @Test
     public void testLoginEmailIsInt() {
         int email = RandomUserData.getRandomInt();
-        given().log().all().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
+        given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -116,7 +116,7 @@ public class ReebokApiTest {
     @Test
     public void testLoginPasswordIsInt() {
         int password = RandomUserData.getRandomInt();
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -125,7 +125,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginUpperCaseInEmailKey() {
-        given().log().all().body(BodyGenerator.getBodyWithInvalidEmailKey()).
+        given().body(BodyGenerator.getBodyWithInvalidEmailKey()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -134,7 +134,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginUpperCaseInPasswordKey() {
-                given().log().all().body(BodyGenerator.getBodyWithInvalidPasswordKey()).
+                given().body(BodyGenerator.getBodyWithInvalidPasswordKey()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
