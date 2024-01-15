@@ -17,6 +17,11 @@ public class RandomUserData {
         return faker.name().lastName() + "@email";
     }
 
+    public static int getRandomInt() {
+        Faker faker = new Faker();
+        return Integer.parseInt(faker.number().digits(8));
+    }
+
     public static String getRandomValidPassword() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@!#$%&";
         String password = RandomStringUtils.random(8, characters);
