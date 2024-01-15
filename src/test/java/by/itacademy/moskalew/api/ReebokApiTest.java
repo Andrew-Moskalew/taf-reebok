@@ -1,6 +1,7 @@
 package by.itacademy.moskalew.api;
 
 
+import by.itacademy.moskalew.domain.BodyGenerator;
 import by.itacademy.moskalew.domain.RandomUserData;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginValidValues() {
-        given().log().all().body(RandomUserData.getBodyWithValidValues()).
+        given().log().all().body(BodyGenerator.getBodyWithValidValues()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -22,7 +23,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginInvalidEmail() {
-        given().log().all().body(RandomUserData.getBodyWithInvalidEmail()).
+        given().log().all().body(BodyGenerator.getBodyWithInvalidEmail()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -32,7 +33,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutUpperCaseChars() {
-        given().log().all().body(RandomUserData.getBodyPasswordWithoutUpperCaseChars()).
+        given().log().all().body(BodyGenerator.getBodyPasswordWithoutUpperCaseChars()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -41,7 +42,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutLowerCaseChars() {
-        given().log().all().body(RandomUserData.getBodyPasswordWithoutLowerCaseChars()).
+        given().log().all().body(BodyGenerator.getBodyPasswordWithoutLowerCaseChars()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -50,7 +51,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutDigits() {
-        given().log().all().body(RandomUserData.getBodyPasswordWithoutDigits()).
+        given().log().all().body(BodyGenerator.getBodyPasswordWithoutDigits()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -59,7 +60,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginPasswordWithoutSplChars() {
-        given().log().all().body(RandomUserData.getBodyPasswordWithoutSplChars()).
+        given().log().all().body(BodyGenerator.getBodyPasswordWithoutSplChars()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then()
@@ -68,7 +69,7 @@ public class ReebokApiTest {
 
     @Test
     public void testLoginInvalidLengthPassword() {
-        given().log().all().body(RandomUserData.getBodyInvalidLengthPassword()).
+        given().log().all().body(BodyGenerator.getBodyInvalidLengthPassword()).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
