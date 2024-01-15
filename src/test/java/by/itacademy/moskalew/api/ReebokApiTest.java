@@ -17,8 +17,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -26,8 +25,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomInvalidEmail(), RandomUserData.getRandomValidPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
 
@@ -36,8 +34,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutUpperCaseChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -45,8 +42,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutLowerCaseChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -54,8 +50,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutDigits()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -63,8 +58,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutSplChars()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -72,8 +66,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomInvalidLengthPassword()))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -81,8 +74,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody("", ""))
                 .header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Incorrect email/password – please check and retry"));
     }
 
     @Test
@@ -90,8 +82,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(null, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" of non-null type \"String!\" must not be null."));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" of non-null type \"String!\" must not be null."));
     }
 
     @Test
@@ -99,8 +90,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), null)).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$password\" of non-null type \"String!\" must not be null."));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Variable \"$password\" of non-null type \"String!\" must not be null."));
     }
 
     @Test
@@ -109,8 +99,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultEmail(email)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultEmail(email)));
     }
 
     @Test
@@ -119,8 +108,7 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultPassword(password)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultPassword(password)));
     }
 
     @Test
@@ -128,17 +116,15 @@ public class ReebokApiTest {
         given().body(BodyGenerator.getBodyWithInvalidEmailKey()).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" of required type \"String!\" was not provided."));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Variable \"$email\" of required type \"String!\" was not provided."));
     }
 
     @Test
     public void testLoginUpperCaseInPasswordKey() {
-                given().body(BodyGenerator.getBodyWithInvalidPasswordKey()).
+        given().body(BodyGenerator.getBodyWithInvalidPasswordKey()).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all()
-                .statusCode(200).body("errors.message[0]", equalTo("Variable \"$password\" of required type \"String!\" was not provided."));
+                .then().statusCode(200).body("errors.message[0]", equalTo("Variable \"$password\" of required type \"String!\" was not provided."));
     }
 
 }
