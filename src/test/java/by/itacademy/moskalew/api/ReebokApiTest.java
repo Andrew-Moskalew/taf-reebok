@@ -129,7 +129,7 @@ public class ReebokApiTest {
                         " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                         " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                         "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                        ":{\"EMAIL\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomValidEmail() + "\"}}").
+                        ":{\"EMAIL\":\"" + RandomUserData.getRandomValidEmail() + "\",\"password\":\"" + RandomUserData.getRandomValidPassword() + "\"}}").
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
@@ -142,7 +142,7 @@ public class ReebokApiTest {
                                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"PASSWORD\":\"" + RandomUserData.getRandomValidEmail() + "\"}}").
+                                ":{\"email\":\"" + RandomUserData.getRandomValidEmail() + "\",\"PASSWORD\":\"" + RandomUserData.getRandomValidPassword() + "\"}}").
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().log().all()
