@@ -4,7 +4,10 @@ import by.itacademy.moskalew.driver.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ReebokSearchPage {
@@ -30,7 +33,11 @@ public class ReebokSearchPage {
     }
 
     public void clickButtonSearch() {
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getButtonResetSearch()));
         driver.findElement(By.xpath(buttonSearch)).click();
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSearchResult()));
     }
 
     public void sendKeysInputSearch(String search) {

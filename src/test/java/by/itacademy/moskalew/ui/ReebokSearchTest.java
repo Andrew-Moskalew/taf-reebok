@@ -7,10 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class ReebokSearchTest {
     public void testStart() {
         reebokSearchPage = new ReebokSearchPage();
         MyDriver.getDriver().get(reebokSearchPage.getUrl());
-            }
+    }
 
     @AfterEach
     public void testFinish() {
@@ -31,22 +28,14 @@ public class ReebokSearchTest {
     @Test
     public void testSearch() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         Assertions.assertEquals("”FURY 95 SHOES”", reebokSearchPage.getTextSearchResult());
     }
 
     @Test
     public void testSearchItemsList() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         Assertions.assertEquals(3, searchItems.size());
     }
@@ -54,11 +43,7 @@ public class ReebokSearchTest {
     @Test
     public void testSearchItemsListCompare() {
         reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getButtonResetSearch()));
         reebokSearchPage.clickButtonSearch();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(reebokSearchPage.getHeaderSearchResult()));
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         List<String> searchItemsString = new ArrayList<>();
         for (WebElement searchItem : searchItems) {
