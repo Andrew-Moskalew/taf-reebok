@@ -97,20 +97,20 @@ public class ReebokApiTest {
     public void testLoginEmailIsInt() {
         int email = RandomUserData.getRandomInt();
         System.out.println(email);
-        given().log().all().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
+        given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultEmail(email)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultEmail(email)));
     }
 
     @Test
     public void testLoginPasswordIsInt() {
         int password = RandomUserData.getRandomInt();
         System.out.println(password);
-        given().log().all().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
+        given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().log().all().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultPassword(password)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultPassword(password)));
     }
 
     @Test
