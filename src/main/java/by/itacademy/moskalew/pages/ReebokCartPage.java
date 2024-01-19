@@ -65,7 +65,7 @@ public class ReebokCartPage {
     }
 
     public void clickButtonSize() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(100))
                 .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
         driver.findElement(By.xpath(buttonSize)).click();
     }
