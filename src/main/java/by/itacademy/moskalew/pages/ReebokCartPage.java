@@ -60,11 +60,13 @@ public class ReebokCartPage {
 
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
     }
 
     public void clickButtonSize() {
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
         driver.findElement(By.xpath(buttonSize)).click();
     }
 
