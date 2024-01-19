@@ -33,6 +33,7 @@ public class ReebokCartPage {
     public String getUrl() {
         return url;
     }
+
     public By getWait() {
         return By.xpath(qwe);
     }
@@ -56,6 +57,7 @@ public class ReebokCartPage {
     public By getHeaderAddToCart() {
         return By.xpath(headerAddToCart);
     }
+
     public By getHeaderSignUp() {
         return By.xpath(headerSignUp);
     }
@@ -68,21 +70,22 @@ public class ReebokCartPage {
 
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
-            }
+    }
 
-    public void clickButtonSize() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(getWait()));
+    public void clickButtonSize() throws InterruptedException {
+        //new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        //.until(ExpectedConditions.presenceOfElementLocated(getWait()));
+        Thread.sleep (11000);
         driver.findElement(By.xpath(buttonSize)).click();
         //new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                //.until(ExpectedConditions.presenceOfElementLocated(getButtonAddToCart()));
+        //.until(ExpectedConditions.presenceOfElementLocated(getButtonAddToCart()));
     }
 
     public void clickButtonAddToCart() {
         driver.findElement(By.xpath(buttonAddToCart)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderAddToCart()));
-            }
+    }
 
     public void clickButtonViewCart() {
         driver.findElement(By.xpath(buttonViewCart)).click();
@@ -110,7 +113,7 @@ public class ReebokCartPage {
         return driver.findElement(By.xpath(headerEmptyCart)).getText();
     }
 
-    public void addItemToCart() {
+    public void addItemToCart() throws InterruptedException {
         clickLinkWomen();
         clickLinkShoes();
         clickButtonSize();

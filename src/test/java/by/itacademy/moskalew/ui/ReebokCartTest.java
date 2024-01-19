@@ -28,7 +28,7 @@ public class ReebokCartTest {
     }
 
     @Test
-    public void testGetItemToCart() {
+    public void testGetItemToCart() throws InterruptedException {
         //reebokCartPage.addItemToCart();
         reebokCartPage.clickLinkWomen();
         reebokCartPage.clickLinkShoes();
@@ -39,7 +39,7 @@ public class ReebokCartTest {
     }
 
     @Test
-    public void testRemoveItemFromCart() {
+    public void testRemoveItemFromCart() throws InterruptedException {
         //reebokCartPage.addItemToCart();
         reebokCartPage.clickLinkWomen();
         reebokCartPage.clickLinkShoes();
