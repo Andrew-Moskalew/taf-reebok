@@ -21,6 +21,7 @@ public class ReebokCartPage {
     private String headerEmptyCart = "//h1[@class='tag_h1_sm--2PQTc  cart-content--2qjcd']";
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
+    private String headerSignUp = "//h3[@class='tag_h3_wb--3Xjf-']";
     private String url = "https://www.reebok.com";
     private WebDriver driver;
 
@@ -51,6 +52,9 @@ public class ReebokCartPage {
     public By getHeaderAddToCart() {
         return By.xpath(headerAddToCart);
     }
+    public By getHeaderSignUp() {
+        return By.xpath(headerSignUp);
+    }
 
     public void clickLinkWomen() {
         driver.findElement(By.xpath(linkWomen)).click();
@@ -61,7 +65,7 @@ public class ReebokCartPage {
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
+                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
     }
 
     public void clickButtonSize() {
