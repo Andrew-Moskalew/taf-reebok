@@ -73,10 +73,10 @@ public class ReebokCartPage {
     }
 
     public void clickButtonAddToCart() {
-        driver.findElement(By.xpath(buttonAddToCart)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderAddToCart()));
-    }
+        driver.findElement(By.xpath(buttonAddToCart)).click();
+            }
 
     public void clickButtonViewCart() {
         driver.findElement(By.xpath(buttonViewCart)).click();
