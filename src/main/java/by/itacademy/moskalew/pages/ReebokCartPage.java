@@ -72,13 +72,12 @@ public class ReebokCartPage {
         driver.findElement(By.xpath(linkShoes)).click();
     }
 
-    public void clickButtonSize() throws InterruptedException {
-        //new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-        //.until(ExpectedConditions.presenceOfElementLocated(getWait()));
-        Thread.sleep (11000);
+    public void clickButtonSize() {
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getWait()));
         driver.findElement(By.xpath(buttonSize)).click();
-        //new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-        //.until(ExpectedConditions.presenceOfElementLocated(getButtonAddToCart()));
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
     }
 
     public void clickButtonAddToCart() {
@@ -113,7 +112,7 @@ public class ReebokCartPage {
         return driver.findElement(By.xpath(headerEmptyCart)).getText();
     }
 
-    public void addItemToCart() throws InterruptedException {
+    public void addItemToCart() {
         clickLinkWomen();
         clickLinkShoes();
         clickButtonSize();
