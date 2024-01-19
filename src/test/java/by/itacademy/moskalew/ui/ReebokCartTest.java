@@ -29,13 +29,23 @@ public class ReebokCartTest {
 
     @Test
     public void testGetItemToCart() {
-        reebokCartPage.addItemToCart();
+        //reebokCartPage.addItemToCart();
+        reebokCartPage.clickLinkWomen();
+        reebokCartPage.clickLinkShoes();
+        reebokCartPage.clickButtonSize();
+        reebokCartPage.clickButtonAddToCart();
+        reebokCartPage.clickButtonViewCart();
         Assertions.assertEquals("Nano X4 Women's Training Shoes",reebokCartPage.getTextMessageShoesInCart());
     }
 
     @Test
     public void testRemoveItemFromCart() {
-        reebokCartPage.addItemToCart();
+        //reebokCartPage.addItemToCart();
+        reebokCartPage.clickLinkWomen();
+        reebokCartPage.clickLinkShoes();
+        reebokCartPage.clickButtonSize();
+        reebokCartPage.clickButtonAddToCart();
+        reebokCartPage.clickButtonViewCart();
         reebokCartPage.clickButtonRemoveFromCart();
         Assertions.assertEquals("YOUR CART IS EMPTY", reebokCartPage.getTextHeaderEmptyCart());
     }
