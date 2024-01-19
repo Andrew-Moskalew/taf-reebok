@@ -96,7 +96,6 @@ public class ReebokApiTest {
     @Test
     public void testLoginEmailIsInt() {
         int email = RandomUserData.getRandomInt();
-        System.out.println(email);
         given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
@@ -106,7 +105,6 @@ public class ReebokApiTest {
     @Test
     public void testLoginPasswordIsInt() {
         int password = RandomUserData.getRandomInt();
-        System.out.println(password);
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)

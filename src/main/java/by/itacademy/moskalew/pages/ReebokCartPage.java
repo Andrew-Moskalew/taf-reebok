@@ -11,7 +11,7 @@ import java.time.Duration;
 public class ReebokCartPage {
     private String linkWomen = "//a[@class='menu-item-containter--1orXf ' and @title='WOMEN']";
     private String linkShoes = "//*[@id=\"eb-main\"]/div/div/div/div[6]/div[1]/div[2]/div/div/div[1]/div[4]/div/div/div/div/div/a/div[1]/img";
-    private String buttonSize = "//*[@id=\"productInfoPanel\"]/div[7]/div[1]/div[7]/span/div";
+    private String buttonSize = "//*[@id=\"productInfoPanel\"]/div[7]/div[1]/div[7]/span";
     private String buttonAddToCart = "//button[@class='btn--1eE4Z theme-rr-navy--3ttBH size-large--3vbcz product-wrapper-info-add-to-cart-btn--3f9Dj']";
     private String buttonViewCart = "//button[@class='btn--1eE4Z theme-rr-navy--3ttBH size-medium--2Wvri mini-cart-body-summary-btn-cart--1rEBK']";
     private String buttonRemoveFromCart = "//*[name()='svg' and @width='14']";
@@ -46,7 +46,7 @@ public class ReebokCartPage {
     }
 
     public By getSelectorShoesSizes() {
-        return By.xpath(buttonSize);
+        return By.xpath(buttonAddToCart);
     }
 
     public By getHeaderAddToCart() {
@@ -65,7 +65,7 @@ public class ReebokCartPage {
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
+                .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
     }
 
     public void clickButtonSize() {
