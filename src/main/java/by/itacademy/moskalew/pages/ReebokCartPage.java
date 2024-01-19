@@ -32,6 +32,9 @@ public class ReebokCartPage {
     public String getUrl() {
         return url;
     }
+    public By getButtonAddToCart() {
+        return By.xpath(buttonAddToCart);
+    }
 
     public By getHeaderCart() {
         return By.xpath(headerCart);
@@ -70,12 +73,14 @@ public class ReebokCartPage {
 
     public void clickButtonSize() {
         driver.findElement(By.xpath(buttonSize)).click();
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getButtonAddToCart()));
     }
 
     public void clickButtonAddToCart() {
+        driver.findElement(By.xpath(buttonAddToCart)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderAddToCart()));
-        driver.findElement(By.xpath(buttonAddToCart)).click();
             }
 
     public void clickButtonViewCart() {
