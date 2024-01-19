@@ -60,7 +60,7 @@ public class ReebokCartPage {
 
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(100))
                 .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
     }
 

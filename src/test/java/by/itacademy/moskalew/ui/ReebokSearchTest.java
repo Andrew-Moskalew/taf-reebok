@@ -27,22 +27,22 @@ public class ReebokSearchTest {
 
     @Test
     public void testSearch() {
-        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
+        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
-        Assertions.assertEquals("”FURY 95 SHOES”", reebokSearchPage.getTextSearchResult());
+        Assertions.assertEquals("”FREESTYLE HIGH WOMEN'S SHOES”", reebokSearchPage.getTextSearchResult());
     }
 
     @Test
     public void testSearchItemsList() {
-        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
+        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Assertions.assertEquals(3, searchItems.size());
+        Assertions.assertEquals(5, searchItems.size());
     }
 
     @Test
     public void testSearchItemsListCompare() {
-        reebokSearchPage.sendKeysInputSearch("fury 95 shoes");
+        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         List<String> searchItemsString = new ArrayList<>();
@@ -50,9 +50,11 @@ public class ReebokSearchTest {
             searchItemsString.add(searchItem.getText());
         }
         List<String> expectedSearchItemsList = new ArrayList<>();
-        expectedSearchItemsList.add("Happy99 Instapump Fury 95 Shoes");
-        expectedSearchItemsList.add("Happy99 Instapump Fury 95 Shoes");
-        expectedSearchItemsList.add("Harry Potter Voldemort Instapump Fury 95 Shoes");
+        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
+        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
+        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
+        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
+        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
     }
 
