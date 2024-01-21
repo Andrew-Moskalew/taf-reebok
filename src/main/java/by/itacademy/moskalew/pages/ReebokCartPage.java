@@ -73,11 +73,11 @@ public class ReebokCartPage {
     }
 
     public void clickButtonSize() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(getWait()));
+        // new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        //        .until(ExpectedConditions.presenceOfElementLocated(getWait()));
         driver.findElement(By.xpath(buttonSize)).click();
-        //new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-                //.until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
     }
 
     public void clickButtonAddToCart() {
