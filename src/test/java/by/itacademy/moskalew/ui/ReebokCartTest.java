@@ -30,7 +30,7 @@ public class ReebokCartTest {
     @Test
     public void testGetItemToCart() {
         reebokCartPage.addItemToCart();
-        Assertions.assertEquals("Nano X4 Women's Training Shoes",reebokCartPage.getTextMessageShoesInCart());
+        Assertions.assertEquals("Nano X4 Training Shoes",reebokCartPage.getTextMessageShoesInCart());
     }
 
     @Test
