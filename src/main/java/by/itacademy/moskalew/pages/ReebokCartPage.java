@@ -22,7 +22,7 @@ public class ReebokCartPage {
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
     private String headerSignUp = "//h3[@class='tag_h3_wb--3Xjf-']";
-    private String qwe = "//*[@id=\"productInfoPanel\"]/div[7]/div[2]/small/a";
+    private String qwe = "//*[@id=\"productInfoPanel\"]/div[9]/div[1]/div[2]/p";
     private String url = "https://www.reebok.com";
     private WebDriver driver;
 
