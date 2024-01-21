@@ -28,13 +28,13 @@ public class ReebokCartTest {
     }
 
     @Test
-    public void testGetItemToCart() {
+    public void testGetItemToCart() throws InterruptedException {
         reebokCartPage.addItemToCart();
         Assertions.assertEquals("Nano X4 Training Shoes",reebokCartPage.getTextMessageShoesInCart());
     }
 
     @Test
-    public void testRemoveItemFromCart() {
+    public void testRemoveItemFromCart() throws InterruptedException {
         reebokCartPage.addItemToCart();
         reebokCartPage.clickButtonRemoveFromCart();
         Assertions.assertEquals("YOUR CART IS EMPTY", reebokCartPage.getTextHeaderEmptyCart());
