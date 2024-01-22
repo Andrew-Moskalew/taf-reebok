@@ -22,7 +22,6 @@ public class ReebokCartPage {
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
     private String headerSignUp = "//h3[@class='tag_h3_wb--3Xjf-']";
-    private String qwe = "//*[@id=\"productInfoPanel\"]/div[9]/div[1]/div[2]/p";
     private String url = "https://www.reebok.com";
     private WebDriver driver;
 
@@ -32,10 +31,6 @@ public class ReebokCartPage {
 
     public String getUrl() {
         return url;
-    }
-
-    public By getWait() {
-        return By.xpath(qwe);
     }
 
     public By getHeaderCart() {
@@ -72,10 +67,9 @@ public class ReebokCartPage {
         driver.findElement(By.xpath(linkShoes)).click();
     }
 
-    public void clickButtonSize() throws InterruptedException {
-        Thread.sleep(15000);
-        // new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
-        //        .until(ExpectedConditions.presenceOfElementLocated(getWait()));
+    public void clickButtonSize() {
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
         driver.findElement(By.xpath(buttonSize)).click();
         new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
@@ -113,7 +107,7 @@ public class ReebokCartPage {
         return driver.findElement(By.xpath(headerEmptyCart)).getText();
     }
 
-    public void addItemToCart() throws InterruptedException {
+    public void addItemToCart() {
         clickLinkWomen();
         clickLinkShoes();
         clickButtonSize();
