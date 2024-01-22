@@ -37,7 +37,7 @@ public class ReebokSearchTest {
         reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Assertions.assertEquals(5, searchItems.size());
+        Assertions.assertEquals(6, searchItems.size());
     }
 
     @Test
@@ -53,6 +53,7 @@ public class ReebokSearchTest {
         expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
         expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
         expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
+        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         Assertions.assertEquals(expectedSearchItemsList, searchItemsString);

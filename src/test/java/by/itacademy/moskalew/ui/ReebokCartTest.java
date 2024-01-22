@@ -30,7 +30,7 @@ public class ReebokCartTest {
     @Test
     public void testGetItemToCart() throws InterruptedException {
         reebokCartPage.addItemToCart();
-        Assertions.assertEquals("Nano X4 Training Shoes",reebokCartPage.getTextMessageShoesInCart());
+        Assertions.assertEquals("Club C 85 Vintage Shoes",reebokCartPage.getTextMessageShoesInCart());
     }
 
     @Test
