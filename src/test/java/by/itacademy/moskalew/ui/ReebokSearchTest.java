@@ -2,6 +2,8 @@ package by.itacademy.moskalew.ui;
 
 import by.itacademy.moskalew.driver.MyDriver;
 import by.itacademy.moskalew.pages.ReebokSearchPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class ReebokSearchTest {
     ReebokSearchPage reebokSearchPage;
+    private static final Logger logger = LogManager.getLogger();
 
     @BeforeEach
     public void testStart() {
@@ -27,21 +30,26 @@ public class ReebokSearchTest {
 
     @Test
     public void testSearch() {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         Assertions.assertEquals("”FREESTYLE HIGH WOMEN'S SHOES”", reebokSearchPage.getTextSearchResult());
+        logger.info("Test passed \n");
     }
 
     @Test
     public void testSearchItemsList() {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
         Assertions.assertEquals(6, searchItems.size());
+        logger.info("Test passed \n");
     }
 
     @Test
     public void testSearchItemsListCompare() {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
@@ -57,6 +65,7 @@ public class ReebokSearchTest {
         expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         expectedSearchItemsList.add("F/S Hi Women'S Shoes");
         Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
+        logger.info("Test passed \n");
     }
 
 }

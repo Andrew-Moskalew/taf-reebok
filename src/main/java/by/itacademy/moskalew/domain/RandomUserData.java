@@ -2,24 +2,42 @@ package by.itacademy.moskalew.domain;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RandomUserData {
+
+    private static final Logger logger = LogManager.getLogger();
+
     public static String getRandomValidEmail() {
         Faker faker = new Faker();
-        return faker.internet().emailAddress();
+        String email = faker.internet().emailAddress();
+        logger.info("email: " + email);
+        return email;
     }
 
     public static String getRandomInvalidEmail() {
         Faker faker = new Faker();
-        return faker.name().lastName() + "@email";
+        String email = faker.name().lastName() + "@email";
+        logger.info("email: " + email);
+        return email;
     }
 
-    public static int getRandomInt() {
+    public static int getRandomIntEmail() {
         Faker faker = new Faker();
-        return Integer.parseInt(faker.number().digits(8));
+        int email = Integer.parseInt(faker.number().digits(8));
+        logger.info("email: " + email);
+        return email;
+    }
+
+    public static int getRandomIntPassword() {
+        Faker faker = new Faker();
+        int password = Integer.parseInt(faker.number().digits(8));
+        logger.info("password: " + password);
+        return password;
     }
 
     public static String getRandomValidPassword() {
@@ -31,6 +49,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomValidPassword();
@@ -46,6 +65,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutLowerCaseChars();
@@ -61,6 +81,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutUpperCaseChars();
@@ -76,6 +97,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutDigits();
@@ -91,6 +113,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutSplChars();
@@ -106,6 +129,7 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
+            logger.info("password: " + password);
             return password;
         } else {
             return getRandomInvalidLengthPassword();
