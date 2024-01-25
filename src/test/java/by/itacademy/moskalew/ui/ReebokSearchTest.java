@@ -10,8 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class ReebokSearchTest {
     ReebokSearchPage reebokSearchPage;
@@ -50,20 +51,32 @@ public class ReebokSearchTest {
     @Test
     public void testSearchItemsListCompare() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
+        reebokSearchPage.sendKeysInputSearch("Nano X4 Women'S Training Shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        List<String> searchItemsString = new ArrayList<>();
+        Set<String> searchItemsString = new TreeSet<>();
         for (WebElement searchItem : searchItems) {
             searchItemsString.add(searchItem.getText());
         }
-        List<String> expectedSearchItemsList = new ArrayList<>();
-        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
-        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
-        expectedSearchItemsList.add("Freestyle Hi Women'S Shoes");
-        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
-        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
-        expectedSearchItemsList.add("F/S Hi Women'S Shoes");
+        Set<String> expectedSearchItemsList = new TreeSet<>();
+        expectedSearchItemsList.add("Nano X4 Women'S Training Shoes");
+        Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
+        logger.info("Test passed \n");
+    }
+
+    @Test
+    public void testSearchItemsListCompareMultipleResult() {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        reebokSearchPage.sendKeysInputSearch("Nano X4 Training Shoes");
+        reebokSearchPage.clickButtonSearch();
+        List<WebElement> searchItems = reebokSearchPage.getProductCards();
+        Set<String> searchItemsString = new TreeSet<>();
+        for (WebElement searchItem : searchItems) {
+            searchItemsString.add(searchItem.getText());
+        }
+        Set<String> expectedSearchItemsList = new TreeSet<>();
+        expectedSearchItemsList.add("Nano X4 Training Shoes");
+        expectedSearchItemsList.add("Nano X4 Women'S Training Shoes");
         Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
         logger.info("Test passed \n");
     }
