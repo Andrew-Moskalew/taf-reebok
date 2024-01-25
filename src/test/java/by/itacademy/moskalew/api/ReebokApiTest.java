@@ -119,8 +119,8 @@ public class ReebokApiTest {
     @Test
     public void testLoginEmailIsInt() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        //int email = RandomUserData.getRandomIntEmail();
-        int email = 12345678;
+        int email = RandomUserData.getRandomIntEmail();
+        //int email = 12345678;
         given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
@@ -131,8 +131,8 @@ public class ReebokApiTest {
     @Test
     public void testLoginPasswordIsInt() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        //int password = RandomUserData.getRandomIntPassword();
-        int password = 12345678;
+        int password = RandomUserData.getRandomIntPassword();
+        //int password = 12345678;
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)
