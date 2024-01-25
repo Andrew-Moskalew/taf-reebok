@@ -162,11 +162,13 @@ public class ReebokApiTest {
 
     @Test
     public void testSearch() {
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         String searchRequest = "Spyder x Reebok Zig Kinetica 2.5 Edge Shoes";
         given().body(BodyGenerator.getBodySearch(searchRequest)).
                 header("Content-Type", "application/json")
                 .when().post(url)
                 .then().statusCode(200).body("data.productSearch.results.newProductName[0]", equalTo(searchRequest));
+        logger.info("Test passed \n");
     }
 
 }
