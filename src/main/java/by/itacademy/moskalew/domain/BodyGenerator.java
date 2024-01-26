@@ -30,40 +30,26 @@ public class BodyGenerator {
     }
 
     public static String getBody(int email, String password) {
-        String strEmail = Integer.toString(email);
-        logger.info("email: " + email);
-        return String.format("{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
+        return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\": %s ,\"password\":\"" + password + "\"}}", strEmail);
-                /*"{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
-                        " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
-                        " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
-                        "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                        ":{\"email\":12345678,\"password\":\"" + password + "\"}}";*/
+                ":{\"email\":" + email + ",\"password\":\"" + password + "\"}}";
     }
 
     public static String getBody(String email, int password) {
-        String strPassword = Integer.toString(password);
-        logger.info("password: " + password);
-        return String.format("{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
+        return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                 "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                ":{\"email\":\"" + email + "\",\"password\": %s }}", strPassword);
-                /*"{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
-                        " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
-                        " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
-                        "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
-                        ":{\"email\":\"" + email + "\",\"password\":12345678}}";*/
+                ":{\"email\":\"" + email + "\",\"password\":" + password + "}}";
     }
 
-    public static String getExpectedResultEmail(int email) {
+    public static String getExpectedResultIntEmail(int email) {
         return String.format("Variable \"$email\" got invalid value %1$d; Expected type String. String cannot represent a non string value: %1$d", email);
     }
 
-    public static String getExpectedResultPassword(int password) {
+    public static String getExpectedResultIntPassword(int password) {
         return String.format("Variable \"$password\" got invalid value %1$d; Expected type String. String cannot represent a non string value: %1$d", password);
     }
 
@@ -84,7 +70,7 @@ public class BodyGenerator {
     }
 
     public static String getBodySearch(String searchRequest) {
-        return String.format("{\"query\":\"query productSearch($category: String, $productType: String, $offset: Int, $limit: Int, $fetchType: String," +
+        return "{\"query\":\"query productSearch($category: String, $productType: String, $offset: Int, $limit: Int, $fetchType: String," +
                 " $keyword: String, $facets: [String], $sortBy: String, $sortOrder: String, $locationCode: String, $bruid: String, $deviceType: String," +
                 " $offerDate: String) {\\n  productSearch(\\n    category: $category\\n    productType: $productType\\n    offset: $offset\\n" +
                 "    limit: $limit\\n    fetchType: $fetchType\\n    keyword: $keyword\\n    facets: $facets\\n    sortBy: $sortBy\\n    " +
@@ -101,8 +87,8 @@ public class BodyGenerator {
                 "productType\\n  productLine\\n  productFamily\\n  marketPlaceList\\n  rating\\n  reviewCount\\n  brand\\n  brandAsset\\n  " +
                 "gender\\n  slug\\n  variants {\\n    discountPercentage\\n    variantTitle\\n    regularPrice\\n    salePrice\\n    variantSlug\\n    " +
                 "memberPrice\\n    skuid\\n    variant_thumb_image\\n    badge_text\\n    memberOnly\\n    memberEarly\\n    variant_color_group\\n   " +
-                " __typename\\n  }\\n  __typename\\n}\",\"variables\":{\"category\":null,\"keyword\": \" %s \"," +
+                " __typename\\n  }\\n  __typename\\n}\",\"variables\":{\"category\":null,\"keyword\": \" " + searchRequest + " \"," +
                 "\"facets\":[],\"offset\":0,\"limit\":49,\"fetchType\":\"bloomreach\",\"sortBy\":null,\"sortOrder\":null,\"locationCode\":\"VI\"," +
-                "\"bruid\":\"uid=3979741989024:v=15.0:ts=1706212428942:hc=12\",\"deviceType\":\"desktop\"}}", searchRequest);
+                "\"bruid\":\"uid=3979741989024:v=15.0:ts=1706212428942:hc=12\",\"deviceType\":\"desktop\"}}";
     }
 }
