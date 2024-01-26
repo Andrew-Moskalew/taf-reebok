@@ -162,7 +162,7 @@ public class ReebokApiTest {
     public void testSearch() {
         String searchRequest = "Spyder x Reebok Zig Kinetica 2.5 Edge Shoes";
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        logger.info("search request is: "+ searchRequest);
+        logger.info("search request is: " + searchRequest);
         given().body(BodyGenerator.getBodySearch(searchRequest)).
                 header("Content-Type", "application/json")
                 .when().post(url)
