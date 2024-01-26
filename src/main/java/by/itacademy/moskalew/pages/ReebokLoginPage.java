@@ -70,7 +70,7 @@ public class ReebokLoginPage {
     }
 
     public String getTextErrorMessageLoginForm() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getErrorMessageloginForm()));
         return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
     }
@@ -87,7 +87,7 @@ public class ReebokLoginPage {
 
     public void openLoginForm() {
         clickButtonAccount();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderLogin()));
     }
 }

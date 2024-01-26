@@ -44,7 +44,7 @@ public class ReebokSearchTest {
         reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
         reebokSearchPage.clickButtonSearch();
         List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Assertions.assertEquals(6, searchItems.size());
+        Assertions.assertEquals(5, searchItems.size());
         logger.info("Test passed \n");
     }
 

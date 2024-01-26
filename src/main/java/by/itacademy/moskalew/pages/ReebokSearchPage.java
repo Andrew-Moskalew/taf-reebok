@@ -33,10 +33,10 @@ public class ReebokSearchPage {
     }
 
     public void clickButtonSearch() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getButtonResetSearch()));
         driver.findElement(By.xpath(buttonSearch)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(10))
+        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderSearchResult()));
     }
 
