@@ -120,11 +120,10 @@ public class ReebokApiTest {
     public void testLoginEmailIsInt() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         int email = RandomUserData.getRandomIntEmail();
-        //int email = 12345678;
         given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword())).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultEmail(email)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultIntEmail(email)));
         logger.info("Test passed \n");
     }
 
@@ -132,11 +131,10 @@ public class ReebokApiTest {
     public void testLoginPasswordIsInt() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         int password = RandomUserData.getRandomIntPassword();
-        //int password = 12345678;
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password)).
                 header("Content-Type", "application/json")
                 .when().post(url)
-                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultPassword(password)));
+                .then().statusCode(200).body("errors.message[0]", equalTo(BodyGenerator.getExpectedResultIntPassword(password)));
         logger.info("Test passed \n");
     }
 
@@ -162,8 +160,9 @@ public class ReebokApiTest {
 
     @Test
     public void testSearch() {
-        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         String searchRequest = "Spyder x Reebok Zig Kinetica 2.5 Edge Shoes";
+        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        logger.info("search request is: "+ searchRequest);
         given().body(BodyGenerator.getBodySearch(searchRequest)).
                 header("Content-Type", "application/json")
                 .when().post(url)
