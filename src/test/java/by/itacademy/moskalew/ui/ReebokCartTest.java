@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.ui;
 
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokCartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,12 +16,12 @@ public class ReebokCartTest {
     @BeforeEach
     public void testStart() {
         reebokCartPage = new ReebokCartPage();
-        MyDriver.getDriver().get(reebokCartPage.getUrl());
+        SingletonWebDriver.getDriver().get(reebokCartPage.getUrl());
     }
 
     @AfterEach
     public void testFinish() {
-        MyDriver.quitDriver();
+        SingletonWebDriver.quitDriver();
     }
 
     @Test

@@ -1,7 +1,6 @@
 package by.itacademy.moskalew.pages;
 
-import by.itacademy.moskalew.domain.RandomUserData;
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,7 +29,7 @@ public class ReebokLoginPage {
     }
 
     public ReebokLoginPage() {
-        this.driver = MyDriver.getDriver();
+        this.driver = SingletonWebDriver.getDriver();
     }
 
     public void clickButtonAccount() {
@@ -70,7 +69,7 @@ public class ReebokLoginPage {
     }
 
     public String getTextErrorMessageLoginForm() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getErrorMessageloginForm()));
         return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
     }
@@ -87,7 +86,7 @@ public class ReebokLoginPage {
 
     public void openLoginForm() {
         clickButtonAccount();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderLogin()));
     }
 }

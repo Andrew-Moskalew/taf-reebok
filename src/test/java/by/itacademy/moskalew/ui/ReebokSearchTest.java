@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.ui;
 
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokSearchPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,12 +21,12 @@ public class ReebokSearchTest {
     @BeforeEach
     public void testStart() {
         reebokSearchPage = new ReebokSearchPage();
-        MyDriver.getDriver().get(reebokSearchPage.getUrl());
+        SingletonWebDriver.getDriver().get(reebokSearchPage.getUrl());
     }
 
     @AfterEach
     public void testFinish() {
-        MyDriver.quitDriver();
+        SingletonWebDriver.quitDriver();
     }
 
     @Test

@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.pages;
 
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,14 +29,14 @@ public class ReebokSearchPage {
     }
 
     public ReebokSearchPage() {
-        this.driver = MyDriver.getDriver();
+        this.driver = SingletonWebDriver.getDriver();
     }
 
     public void clickButtonSearch() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getButtonResetSearch()));
         driver.findElement(By.xpath(buttonSearch)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderSearchResult()));
     }
 

@@ -1,7 +1,7 @@
 package by.itacademy.moskalew.ui;
 
 import by.itacademy.moskalew.domain.RandomUserData;
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokLoginPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,13 +19,13 @@ public class ReebokLoginTest {
     @BeforeEach
     public void testStart() {
         reebokLoginPage = new ReebokLoginPage();
-        MyDriver.getDriver().get(reebokLoginPage.getUrl());
+        SingletonWebDriver.getDriver().get(reebokLoginPage.getUrl());
         reebokLoginPage.openLoginForm();
     }
 
     @AfterEach
     public void testFinish() {
-        MyDriver.quitDriver();
+        SingletonWebDriver.quitDriver();
     }
 
     @Test

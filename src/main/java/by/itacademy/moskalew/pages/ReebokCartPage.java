@@ -1,6 +1,6 @@
 package by.itacademy.moskalew.pages;
 
-import by.itacademy.moskalew.driver.MyDriver;
+import by.itacademy.moskalew.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +26,7 @@ public class ReebokCartPage {
     private WebDriver driver;
 
     public ReebokCartPage() {
-        this.driver = MyDriver.getDriver();
+        this.driver = SingletonWebDriver.getDriver();
     }
 
     public String getUrl() {
@@ -59,7 +59,7 @@ public class ReebokCartPage {
 
     public void clickLinkWomen() {
         driver.findElement(By.xpath(linkWomen)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderWomen()));
     }
 
@@ -68,22 +68,22 @@ public class ReebokCartPage {
     }
 
     public void clickButtonSize() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
         driver.findElement(By.xpath(buttonSize)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
     }
 
     public void clickButtonAddToCart() {
         driver.findElement(By.xpath(buttonAddToCart)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderAddToCart()));
     }
 
     public void clickButtonViewCart() {
         driver.findElement(By.xpath(buttonViewCart)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderCart()));
     }
 
@@ -93,7 +93,7 @@ public class ReebokCartPage {
 
     public void clickButtonRemoveFromCart() {
         driver.findElement(By.xpath(buttonRemoveFromCart)).click();
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderEmptyCart()));
     }
 
@@ -102,7 +102,7 @@ public class ReebokCartPage {
     }
 
     public String getTextHeaderEmptyCart() {
-        new WebDriverWait(MyDriver.getDriver(), Duration.ofSeconds(20))
+        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.presenceOfElementLocated(getHeaderEmptyCart()));
         return driver.findElement(By.xpath(headerEmptyCart)).getText();
     }
