@@ -45,14 +45,6 @@ public class BodyGenerator {
                 ":{\"email\":\"" + email + "\",\"password\":" + password + "}}";
     }
 
-    public static String getExpectedResultIntEmail(int email) {
-        return String.format("Variable \"$email\" got invalid value %1$d; Expected type String. String cannot represent a non string value: %1$d", email);
-    }
-
-    public static String getExpectedResultIntPassword(int password) {
-        return String.format("Variable \"$password\" got invalid value %1$d; Expected type String. String cannot represent a non string value: %1$d", password);
-    }
-
     public static String getBodyWithInvalidEmailKey() {
         return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
