@@ -1,6 +1,5 @@
 package by.itacademy.moskalew.ui;
 
-import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokCartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

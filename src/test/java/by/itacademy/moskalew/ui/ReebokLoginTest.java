@@ -1,11 +1,9 @@
 package by.itacademy.moskalew.ui;
 
 import by.itacademy.moskalew.domain.RandomUserData;
-import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokLoginPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
