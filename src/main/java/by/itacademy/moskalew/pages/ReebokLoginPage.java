@@ -3,10 +3,6 @@ package by.itacademy.moskalew.pages;
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.utils.Waiter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ReebokLoginPage extends BasePage {
     private String buttonAccount = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  profile-icon--r3f5X']";
