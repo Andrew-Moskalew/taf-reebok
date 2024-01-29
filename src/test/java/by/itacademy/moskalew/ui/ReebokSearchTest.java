@@ -6,11 +6,6 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class ReebokSearchTest extends BaseTest{
     ReebokSearchPage reebokSearchPage;
@@ -24,52 +19,27 @@ public class ReebokSearchTest extends BaseTest{
     @Test
     public void testSearch() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
+        reebokSearchPage.sendKeysInputSearch(ReebokSearchPage.SEARCH_REQUEST);
         reebokSearchPage.clickButtonSearch();
-        Assertions.assertEquals("”FREESTYLE HIGH WOMEN'S SHOES”", reebokSearchPage.getTextSearchResult());
+        Assertions.assertEquals(ReebokSearchPage.SEARCH_RESPONSE_NAME_OF_ITEM, reebokSearchPage.getTextSearchResult());
         logger.info("Test passed \n");
     }
 
     @Test
     public void testSearchItemsList() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        reebokSearchPage.sendKeysInputSearch("freestyle high women's shoes");
+        reebokSearchPage.sendKeysInputSearch(ReebokSearchPage.SEARCH_REQUEST);
         reebokSearchPage.clickButtonSearch();
-        List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Assertions.assertEquals(5, searchItems.size());
+        Assertions.assertEquals(ReebokSearchPage.SEARCH_RESPONSE_NUMBER_OF_ITEMS, reebokSearchPage.getProductCards().size());
         logger.info("Test passed \n");
     }
 
     @Test
     public void testSearchItemsListCompare() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        reebokSearchPage.sendKeysInputSearch("Nano X4 Women'S Training Shoes");
+        reebokSearchPage.sendKeysInputSearch(ReebokSearchPage.SEARCH_REQUEST);
         reebokSearchPage.clickButtonSearch();
-        List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Set<String> searchItemsString = new TreeSet<>();
-        for (WebElement searchItem : searchItems) {
-            searchItemsString.add(searchItem.getText());
-        }
-        Set<String> expectedSearchItemsList = new TreeSet<>();
-        expectedSearchItemsList.add("Nano X4 Women'S Training Shoes");
-        Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
-        logger.info("Test passed \n");
-    }
-
-    @Test
-    public void testSearchItemsListCompareMultipleResult() {
-        logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        reebokSearchPage.sendKeysInputSearch("Nano X4 Training Shoes");
-        reebokSearchPage.clickButtonSearch();
-        List<WebElement> searchItems = reebokSearchPage.getProductCards();
-        Set<String> searchItemsString = new TreeSet<>();
-        for (WebElement searchItem : searchItems) {
-            searchItemsString.add(searchItem.getText());
-        }
-        Set<String> expectedSearchItemsList = new TreeSet<>();
-        expectedSearchItemsList.add("Nano X4 Training Shoes");
-        expectedSearchItemsList.add("Nano X4 Women'S Training Shoes");
-        Assertions.assertEquals(expectedSearchItemsList, searchItemsString);
+        Assertions.assertEquals(reebokSearchPage.getExpectedSearchItemsList(),reebokSearchPage.getActualSearchItemList());
         logger.info("Test passed \n");
     }
 
