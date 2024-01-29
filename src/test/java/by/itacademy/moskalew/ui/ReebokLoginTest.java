@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class ReebokLoginTest {
+public class ReebokLoginTest extends BaseTest{
 
     ReebokLoginPage reebokLoginPage;
     private static final Logger logger = LogManager.getLogger();
@@ -19,13 +19,7 @@ public class ReebokLoginTest {
     @BeforeEach
     public void testStart() {
         reebokLoginPage = new ReebokLoginPage();
-        SingletonWebDriver.getDriver().get(reebokLoginPage.getUrl());
         reebokLoginPage.openLoginForm();
-    }
-
-    @AfterEach
-    public void testFinish() {
-        SingletonWebDriver.quitDriver();
     }
 
     @Test

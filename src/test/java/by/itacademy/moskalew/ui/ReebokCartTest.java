@@ -4,24 +4,17 @@ import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.ReebokCartPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ReebokCartTest {
+public class ReebokCartTest extends BaseTest {
     ReebokCartPage reebokCartPage;
     private static final Logger logger = LogManager.getLogger();
 
     @BeforeEach
     public void testStart() {
         reebokCartPage = new ReebokCartPage();
-        SingletonWebDriver.getDriver().get(reebokCartPage.getUrl());
-    }
-
-    @AfterEach
-    public void testFinish() {
-        SingletonWebDriver.quitDriver();
     }
 
     @Test

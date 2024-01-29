@@ -14,19 +14,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class ReebokSearchTest {
+public class ReebokSearchTest extends BaseTest{
     ReebokSearchPage reebokSearchPage;
     private static final Logger logger = LogManager.getLogger();
 
     @BeforeEach
     public void testStart() {
         reebokSearchPage = new ReebokSearchPage();
-        SingletonWebDriver.getDriver().get(reebokSearchPage.getUrl());
-    }
-
-    @AfterEach
-    public void testFinish() {
-        SingletonWebDriver.quitDriver();
     }
 
     @Test
