@@ -25,7 +25,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.clickInputEmail();
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals("Please enter your email", reebokLoginPage.getTextErrorMessageEmail());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_ENTER_EMAIL, reebokLoginPage.getTextErrorMessageEmail());
         logger.info("Test passed \n");
     }
 
@@ -34,7 +34,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.clickInputPassword();
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter your password", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_ENTER_PASSWORD, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -42,7 +42,7 @@ public class ReebokLoginTest extends BaseTest{
     public void testReebokComValidValues() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.fillLoginFormAndClickSubmit(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword());
-        Assertions.assertEquals("Incorrect email/password – please check and retry", reebokLoginPage.getTextErrorMessageLoginForm());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_USER_NOT_FOUND, reebokLoginPage.getTextErrorMessageLoginForm());
         logger.info("Test passed \n");
     }
 
@@ -51,7 +51,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomInvalidEmail());
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals("Please enter email in valid format", reebokLoginPage.getTextErrorMessageEmail());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_EMAIL_FORMAT, reebokLoginPage.getTextErrorMessageEmail());
         logger.info("Test passed \n");
     }
 
@@ -60,7 +60,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutUpperCaseChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -69,7 +69,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutLowerCaseChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -78,7 +78,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutDigits());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -87,7 +87,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutSplChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -96,7 +96,7 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomInvalidLengthPassword());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals("Please enter password in valid format", reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(ReebokLoginPage.ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
