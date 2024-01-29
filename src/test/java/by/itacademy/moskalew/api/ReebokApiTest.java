@@ -13,7 +13,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 
 public class ReebokApiTest {
-    ReebokApiPage reebokApiPage;
     private static final Logger logger = LogManager.getLogger();
 
     @Test

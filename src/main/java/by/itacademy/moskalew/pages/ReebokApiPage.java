@@ -1,7 +1,5 @@
 package by.itacademy.moskalew.pages;
 
-import com.google.common.primitives.Floats;
-
 public class ReebokApiPage {
     public static final String URL = "https://www.reebok.com/graphql";
     public static final String CONTENT_TYPE = "application/json";
