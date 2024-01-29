@@ -20,7 +20,7 @@ public class ReebokCartTest extends BaseTest {
     public void testReebokEmptyCart() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.clickButtonCart();
-        Assertions.assertEquals("YOUR CART IS EMPTY", reebokCartPage.getTextHeaderEmptyCart());
+        Assertions.assertEquals(ReebokCartPage.MESSAGE_EMPTY_CART, reebokCartPage.getTextHeaderEmptyCart());
         logger.info("Test passed \n");
     }
 
@@ -28,7 +28,7 @@ public class ReebokCartTest extends BaseTest {
     public void testReebokGetItemToCart() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.addItemToCart();
-        Assertions.assertEquals("Club C 85 Vintage Shoes", reebokCartPage.getTextMessageShoesInCart());
+        Assertions.assertEquals(ReebokCartPage.MESSAGE_ITEM_IN_CART, reebokCartPage.getTextMessageShoesInCart());
         logger.info("Test passed \n");
     }
 
@@ -37,7 +37,7 @@ public class ReebokCartTest extends BaseTest {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.addItemToCart();
         reebokCartPage.clickButtonRemoveFromCart();
-        Assertions.assertEquals("YOUR CART IS EMPTY", reebokCartPage.getTextHeaderEmptyCart());
+        Assertions.assertEquals(ReebokCartPage.MESSAGE_EMPTY_CART, reebokCartPage.getTextHeaderEmptyCart());
         logger.info("Test passed \n");
     }
 

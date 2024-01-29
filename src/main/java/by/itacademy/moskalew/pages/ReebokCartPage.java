@@ -17,6 +17,8 @@ public class ReebokCartPage extends BasePage{
     private String headerEmptyCart = "//h1[@class='tag_h1_sm--2PQTc  cart-content--2qjcd']";
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
+    public static final String MESSAGE_EMPTY_CART = "YOUR CART IS EMPTY";
+    public static final String MESSAGE_ITEM_IN_CART = "Club C 85 Vintage Shoes";
 
     public ReebokCartPage() {
         this.driver = SingletonWebDriver.getDriver();
