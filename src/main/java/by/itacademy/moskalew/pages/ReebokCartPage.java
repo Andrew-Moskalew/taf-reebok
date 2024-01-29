@@ -1,11 +1,8 @@
 package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
+import by.itacademy.moskalew.utils.Waiter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ReebokCartPage extends BasePage{
     private String linkWomen = "//a[@class='menu-item-containter--1orXf ' and @title='WOMEN']";
@@ -20,64 +17,33 @@ public class ReebokCartPage extends BasePage{
     private String headerEmptyCart = "//h1[@class='tag_h1_sm--2PQTc  cart-content--2qjcd']";
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
-    private String headerSignUp = "//h3[@class='tag_h3_wb--3Xjf-']";
 
     public ReebokCartPage() {
         this.driver = SingletonWebDriver.getDriver();
     }
 
-    public By getHeaderCart() {
-        return By.xpath(headerCart);
-    }
-
-    public By getHeaderEmptyCart() {
-        return By.xpath(headerEmptyCart);
-    }
-
-    public By getHeaderWomen() {
-        return By.xpath(headerWomen);
-    }
-
-    public By getSelectorShoesSizes() {
-        return By.xpath(buttonAddToCart);
-    }
-
-    public By getHeaderAddToCart() {
-        return By.xpath(headerAddToCart);
-    }
-
-    public By getHeaderSignUp() {
-        return By.xpath(headerSignUp);
-    }
-
     public void clickLinkWomen() {
         driver.findElement(By.xpath(linkWomen)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderWomen()));
+        Waiter.wait(headerWomen);
     }
 
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
+        Waiter.wait(buttonAddToCart);
     }
 
     public void clickButtonSize() {
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getSelectorShoesSizes()));
         driver.findElement(By.xpath(buttonSize)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSignUp()));
     }
 
     public void clickButtonAddToCart() {
         driver.findElement(By.xpath(buttonAddToCart)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderAddToCart()));
+        Waiter.wait(headerAddToCart);
     }
 
     public void clickButtonViewCart() {
         driver.findElement(By.xpath(buttonViewCart)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderCart()));
+        Waiter.wait(headerCart);
     }
 
     public void clickButtonCart() {
@@ -86,8 +52,6 @@ public class ReebokCartPage extends BasePage{
 
     public void clickButtonRemoveFromCart() {
         driver.findElement(By.xpath(buttonRemoveFromCart)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderEmptyCart()));
     }
 
     public String getTextMessageShoesInCart() {
@@ -95,8 +59,7 @@ public class ReebokCartPage extends BasePage{
     }
 
     public String getTextHeaderEmptyCart() {
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderEmptyCart()));
+        Waiter.wait(headerEmptyCart);
         return driver.findElement(By.xpath(headerEmptyCart)).getText();
     }
 

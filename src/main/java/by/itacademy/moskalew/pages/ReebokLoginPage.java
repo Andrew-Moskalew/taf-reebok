@@ -1,13 +1,14 @@
 package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
+import by.itacademy.moskalew.utils.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ReebokLoginPage extends BasePage{
+public class ReebokLoginPage extends BasePage {
     private String buttonAccount = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  profile-icon--r3f5X']";
     private String buttonLogin = "//button[@class='btn--1eE4Z theme-rr-navy--3ttBH size-small--1XFhu checkout-details-reviewbutton--gQTO4']";
     private String inputEmail = "//input[@class='textbox-input--jX6cr' and @name='email']";
@@ -19,14 +20,6 @@ public class ReebokLoginPage extends BasePage{
 
     public ReebokLoginPage() {
         this.driver = SingletonWebDriver.getDriver();
-    }
-
-    public By getHeaderLogin() {
-        return By.xpath(headerLogin);
-    }
-
-    public By getErrorMessageloginForm() {
-        return By.xpath(errorMessageLoginForm);
     }
 
     public void clickButtonAccount() {
@@ -43,7 +36,7 @@ public class ReebokLoginPage extends BasePage{
 
     public void clickButtonLogin() {
         driver.findElement(By.xpath(buttonLogin)).click();
-            }
+    }
 
     public void sendKeysInputEmail(String email) {
         driver.findElement(By.xpath(inputEmail)).sendKeys(email);
@@ -62,24 +55,18 @@ public class ReebokLoginPage extends BasePage{
     }
 
     public String getTextErrorMessageLoginForm() {
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getErrorMessageloginForm()));
+        Waiter.wait(errorMessageLoginForm);
         return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
     }
 
-    public void fillLoginForm(String email, String password) {
+    public void fillLoginFormAndClickSubmit(String email, String password) {
         sendKeysInputEmail(email);
         sendKeysInputPassword(password);
-    }
-
-    public void fillLoginFormAndClickSubmit(String email, String password) {
-        fillLoginForm(email,password);
         clickButtonLogin();
     }
 
     public void openLoginForm() {
         clickButtonAccount();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderLogin()));
+        Waiter.wait(headerLogin);
     }
 }

@@ -1,15 +1,13 @@
 package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
+import by.itacademy.moskalew.utils.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
-public class ReebokSearchPage extends BasePage{
+public class ReebokSearchPage extends BasePage {
     private String inputSearch = "//input[@class='textbox-input--jX6cr  textbox-input-toggle-off--On9N3' and @placeholder='Search']";
     private String buttonSearch = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  ' and @aria-hidden='true' and @width='24']";
     private String buttonResetSearch = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  ' and @width='14']";
@@ -21,24 +19,14 @@ public class ReebokSearchPage extends BasePage{
         this.driver = SingletonWebDriver.getDriver();
     }
 
-    public By getButtonResetSearch() {
-        return By.xpath(buttonResetSearch);
-    }
-
-    public By getHeaderSearchResult() {
-        return By.xpath(headerSearchResult);
-    }
-
     public void clickButtonSearch() {
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getButtonResetSearch()));
         driver.findElement(By.xpath(buttonSearch)).click();
-        new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.presenceOfElementLocated(getHeaderSearchResult()));
+        Waiter.wait(headerSearchResult);
     }
 
     public void sendKeysInputSearch(String search) {
         driver.findElement(By.xpath(inputSearch)).sendKeys(search);
+        Waiter.wait(buttonResetSearch);
     }
 
     public String getTextSearchResult() {
