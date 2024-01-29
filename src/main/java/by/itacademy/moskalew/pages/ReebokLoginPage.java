@@ -70,4 +70,5 @@ public class ReebokLoginPage extends BasePage {
         clickButtonAccount();
         Waiter.wait(headerLogin);
     }
+
 }

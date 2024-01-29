@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
     BasePage basePage;
+
     @BeforeEach
     public void baseTestStart() {
         basePage = new BasePage();

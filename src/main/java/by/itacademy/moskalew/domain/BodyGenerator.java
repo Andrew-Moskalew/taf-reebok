@@ -83,4 +83,5 @@ public class BodyGenerator {
                 "\"facets\":[],\"offset\":0,\"limit\":49,\"fetchType\":\"bloomreach\",\"sortBy\":null,\"sortOrder\":null,\"locationCode\":\"VI\"," +
                 "\"bruid\":\"uid=3979741989024:v=15.0:ts=1706212428942:hc=12\",\"deviceType\":\"desktop\"}}";
     }
+
 }
