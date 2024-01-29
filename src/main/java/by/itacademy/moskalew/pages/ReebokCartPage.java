@@ -2,13 +2,12 @@ package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ReebokCartPage {
+public class ReebokCartPage extends BasePage{
     private String linkWomen = "//a[@class='menu-item-containter--1orXf ' and @title='WOMEN']";
     private String linkShoes = "//a[@href='/p/100007798/club-c-85-vintage-shoes' and @class=' ']";
     private String buttonSize = "//*[@id=\"productInfoPanel\"]/div[7]/div[1]/div[1]";
@@ -22,15 +21,9 @@ public class ReebokCartPage {
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
     private String headerSignUp = "//h3[@class='tag_h3_wb--3Xjf-']";
-    private String url = "https://www.reebok.com";
-    private WebDriver driver;
 
     public ReebokCartPage() {
         this.driver = SingletonWebDriver.getDriver();
-    }
-
-    public String getUrl() {
-        return url;
     }
 
     public By getHeaderCart() {

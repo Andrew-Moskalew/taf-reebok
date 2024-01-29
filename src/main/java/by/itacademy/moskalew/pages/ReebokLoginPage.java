@@ -2,13 +2,12 @@ package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ReebokLoginPage {
+public class ReebokLoginPage extends BasePage{
     private String buttonAccount = "//*[name()='svg' and @class='icon--RZbKK icon-link--seVu2  profile-icon--r3f5X']";
     private String buttonLogin = "//button[@class='btn--1eE4Z theme-rr-navy--3ttBH size-small--1XFhu checkout-details-reviewbutton--gQTO4']";
     private String inputEmail = "//input[@class='textbox-input--jX6cr' and @name='email']";
@@ -17,8 +16,10 @@ public class ReebokLoginPage {
     private String errorMessagePassword = "//p[@class='tag_p--1xo5V theme-error--3VYhx address-form-password--2OqFT']";
     private String errorMessageLoginForm = "//span[@class='registerForm-LoginError--1mbUB']";
     private String headerLogin = "//h1[@class='tag_h1_sm--2PQTc  registerForm-title--2CADy' and text()='Log In']";
-    private String url = "https://www.reebok.com";
-    private WebDriver driver;
+
+    public ReebokLoginPage() {
+        this.driver = SingletonWebDriver.getDriver();
+    }
 
     public By getHeaderLogin() {
         return By.xpath(headerLogin);
@@ -26,10 +27,6 @@ public class ReebokLoginPage {
 
     public By getErrorMessageloginForm() {
         return By.xpath(errorMessageLoginForm);
-    }
-
-    public ReebokLoginPage() {
-        this.driver = SingletonWebDriver.getDriver();
     }
 
     public void clickButtonAccount() {
@@ -54,10 +51,6 @@ public class ReebokLoginPage {
 
     public void sendKeysInputPassword(String password) {
         driver.findElement(By.xpath(inputPassword)).sendKeys(password);
-    }
-
-    public String getUrl() {
-        return url;
     }
 
     public String getTextErrorMessageEmail() {
