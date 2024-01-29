@@ -2,7 +2,6 @@ package by.itacademy.moskalew.ui;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.pages.BasePage;
-import by.itacademy.moskalew.pages.ReebokCartPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
