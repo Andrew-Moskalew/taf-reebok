@@ -10,33 +10,27 @@ import java.util.regex.Pattern;
 
 public class RandomUserData {
 
-    private static final Logger logger = LogManager.getLogger();
-
     public static String getRandomValidEmail() {
         Faker faker = new Faker();
         String email = faker.internet().emailAddress();
-        logger.info("email: " + email);
         return email;
     }
 
     public static String getRandomInvalidEmail() {
         Faker faker = new Faker();
         String email = faker.name().lastName() + "@email";
-        logger.info("email: " + email);
         return email;
     }
 
     public static int getRandomIntEmail() {
         Faker faker = new Faker();
         int email = Integer.parseInt(faker.number().digits(8));
-        logger.info("email: " + email);
         return email;
     }
 
     public static int getRandomIntPassword() {
         Faker faker = new Faker();
         int password = Integer.parseInt(faker.number().digits(8));
-        logger.info("password: " + password);
         return password;
     }
 
@@ -49,7 +43,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomValidPassword();
@@ -65,7 +58,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutLowerCaseChars();
@@ -81,7 +73,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutUpperCaseChars();
@@ -97,7 +88,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutDigits();
@@ -113,7 +103,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomPasswordWithoutSplChars();
@@ -129,7 +118,6 @@ public class RandomUserData {
         Matcher matcher = pattern.matcher(password);
 
         if (matcher.matches()) {
-            logger.info("password: " + password);
             return password;
         } else {
             return getRandomInvalidLengthPassword();

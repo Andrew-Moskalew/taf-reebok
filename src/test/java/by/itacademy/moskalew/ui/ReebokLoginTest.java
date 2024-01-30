@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class ReebokLoginTest extends BaseTest{
+public class ReebokLoginTest extends BaseTest {
 
     private static final String ERROR_MESSAGE_ENTER_EMAIL = "Please enter your email";
     private static final String ERROR_MESSAGE_ENTER_PASSWORD = "Please enter your password";
@@ -30,7 +30,9 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.clickInputEmail();
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals(ERROR_MESSAGE_ENTER_EMAIL, reebokLoginPage.getTextErrorMessageEmail());
+        String expectedResult = ERROR_MESSAGE_ENTER_EMAIL;
+        logger.info("Expected error message is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessageEmail());
         logger.info("Test passed \n");
     }
 
@@ -39,7 +41,9 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.clickInputPassword();
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals(ERROR_MESSAGE_ENTER_PASSWORD, reebokLoginPage.getTextErrorMessagePassword());
+        String expectedResult = ERROR_MESSAGE_ENTER_PASSWORD;
+        logger.info("Expected error message is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -47,7 +51,9 @@ public class ReebokLoginTest extends BaseTest{
     public void testReebokComValidValues() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.fillLoginFormAndClickSubmit(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword());
-        Assertions.assertEquals(ERROR_MESSAGE_USER_NOT_FOUND, reebokLoginPage.getTextErrorMessageLoginForm());
+        String expectedResult = ERROR_MESSAGE_USER_NOT_FOUND;
+        logger.info("Expected error message is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessageLoginForm());
         logger.info("Test passed \n");
     }
 
@@ -56,7 +62,9 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputEmail(RandomUserData.getRandomInvalidEmail());
         reebokLoginPage.clickInputPassword();
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_EMAIL_FORMAT, reebokLoginPage.getTextErrorMessageEmail());
+        String expectedResult = ERROR_MESSAGE_INVALID_EMAIL_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessageEmail());
         logger.info("Test passed \n");
     }
 
@@ -65,7 +73,9 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutUpperCaseChars());
         reebokLoginPage.clickInputEmail();
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
+        String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -74,6 +84,8 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutLowerCaseChars());
         reebokLoginPage.clickInputEmail();
+        String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
         Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
@@ -83,6 +95,8 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutDigits());
         reebokLoginPage.clickInputEmail();
+        String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
         Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
@@ -92,6 +106,8 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomPasswordWithoutSplChars());
         reebokLoginPage.clickInputEmail();
+        String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
         Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
@@ -101,6 +117,8 @@ public class ReebokLoginTest extends BaseTest{
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokLoginPage.sendKeysInputPassword(RandomUserData.getRandomInvalidLengthPassword());
         reebokLoginPage.clickInputEmail();
+        String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
+        logger.info("Expected error message is: " + expectedResult);
         Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }

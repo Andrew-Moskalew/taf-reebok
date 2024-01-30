@@ -23,7 +23,9 @@ public class ReebokCartTest extends BaseTest {
     public void testReebokEmptyCart() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.clickButtonCart();
-        Assertions.assertEquals(MESSAGE_EMPTY_CART, reebokCartPage.getTextHeaderEmptyCart());
+        String expectedResult = MESSAGE_EMPTY_CART;
+        logger.info("Expected Header is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokCartPage.getTextHeaderEmptyCart());
         logger.info("Test passed \n");
     }
 
@@ -31,7 +33,9 @@ public class ReebokCartTest extends BaseTest {
     public void testReebokGetItemToCart() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.addItemToCart();
-        Assertions.assertEquals(MESSAGE_ITEM_IN_CART, reebokCartPage.getTextMessageShoesInCart());
+        String expectedResult = MESSAGE_ITEM_IN_CART;
+        logger.info("Expected Header is: " + expectedResult);
+        Assertions.assertEquals(expectedResult, reebokCartPage.getTextMessageShoesInCart());
         logger.info("Test passed \n");
     }
 
@@ -40,6 +44,8 @@ public class ReebokCartTest extends BaseTest {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         reebokCartPage.addItemToCart();
         reebokCartPage.clickButtonRemoveFromCart();
+        String expectedResult = MESSAGE_EMPTY_CART;
+        logger.info("Expected Header is: " + expectedResult);
         Assertions.assertEquals(MESSAGE_EMPTY_CART, reebokCartPage.getTextHeaderEmptyCart());
         logger.info("Test passed \n");
     }

@@ -2,6 +2,8 @@ package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.utils.Waiter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 public class ReebokLoginPage extends BasePage {
@@ -13,6 +15,7 @@ public class ReebokLoginPage extends BasePage {
     private String errorMessagePassword = "//p[@class='tag_p--1xo5V theme-error--3VYhx address-form-password--2OqFT']";
     private String errorMessageLoginForm = "//span[@class='registerForm-LoginError--1mbUB']";
     private String headerLogin = "//h1[@class='tag_h1_sm--2PQTc  registerForm-title--2CADy' and text()='Log In']";
+    private static final Logger logger = LogManager.getLogger();
 
     public ReebokLoginPage() {
         this.driver = SingletonWebDriver.getDriver();
@@ -24,35 +27,46 @@ public class ReebokLoginPage extends BasePage {
 
     public void clickInputEmail() {
         driver.findElement(By.xpath(inputEmail)).click();
+        logger.info("Click on Email field");
     }
 
     public void clickInputPassword() {
         driver.findElement(By.xpath(inputPassword)).click();
+        logger.info("Click on Password field");
     }
 
     public void clickButtonLogin() {
         driver.findElement(By.xpath(buttonLogin)).click();
+        logger.info("Click on Login button");
     }
 
     public void sendKeysInputEmail(String email) {
         driver.findElement(By.xpath(inputEmail)).sendKeys(email);
+        logger.info("Entered Email is: " + email);
     }
 
     public void sendKeysInputPassword(String password) {
         driver.findElement(By.xpath(inputPassword)).sendKeys(password);
+        logger.info("Entered Password is: " + password);
     }
 
     public String getTextErrorMessageEmail() {
-        return driver.findElement(By.xpath(errorMessageEmail)).getText();
+        String actualResult = driver.findElement(By.xpath(errorMessageEmail)).getText();
+        logger.info("Actual error message is: " + actualResult);
+        return actualResult;
     }
 
     public String getTextErrorMessagePassword() {
-        return driver.findElement(By.xpath(errorMessagePassword)).getText();
+        String actualResult = driver.findElement(By.xpath(errorMessagePassword)).getText();
+        logger.info("Actual error message is: " + actualResult);
+        return actualResult;
     }
 
     public String getTextErrorMessageLoginForm() {
         Waiter.wait(errorMessageLoginForm);
-        return driver.findElement(By.xpath(errorMessageLoginForm)).getText();
+        String actualResult = driver.findElement(By.xpath(errorMessageLoginForm)).getText();
+        logger.info("Actual error message is: " + actualResult);
+        return actualResult;
     }
 
     public void fillLoginFormAndClickSubmit(String email, String password) {
@@ -64,6 +78,7 @@ public class ReebokLoginPage extends BasePage {
     public void openLoginForm() {
         clickButtonAccount();
         Waiter.wait(headerLogin);
+        logger.info("Login page is opened");
     }
 
 }

@@ -2,6 +2,8 @@ package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.utils.Waiter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 public class ReebokCartPage extends BasePage{
@@ -17,6 +19,7 @@ public class ReebokCartPage extends BasePage{
     private String headerEmptyCart = "//h1[@class='tag_h1_sm--2PQTc  cart-content--2qjcd']";
     private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
+    private static final Logger logger = LogManager.getLogger();
 
     public ReebokCartPage() {
         this.driver = SingletonWebDriver.getDriver();
@@ -25,42 +28,53 @@ public class ReebokCartPage extends BasePage{
     public void clickLinkWomen() {
         driver.findElement(By.xpath(linkWomen)).click();
         Waiter.wait(headerWomen);
+        logger.info("Click on \"Women\" link");
     }
 
     public void clickLinkShoes() {
         driver.findElement(By.xpath(linkShoes)).click();
         Waiter.wait(buttonAddToCart);
+        logger.info("Click on item card");
     }
 
     public void clickButtonSize() {
         driver.findElement(By.xpath(buttonSize)).click();
+        logger.info("Click on size button");
     }
 
     public void clickButtonAddToCart() {
         driver.findElement(By.xpath(buttonAddToCart)).click();
         Waiter.wait(headerAddToCart);
+        logger.info("Click on button \"Add to Cart\"");
     }
 
     public void clickButtonViewCart() {
         driver.findElement(By.xpath(buttonViewCart)).click();
         Waiter.wait(headerCart);
+        logger.info("Click on button \"View cart\"");
     }
 
     public void clickButtonCart() {
         driver.findElement(By.xpath(buttonCart)).click();
+        logger.info("Click on Cart button");
     }
 
     public void clickButtonRemoveFromCart() {
         driver.findElement(By.xpath(buttonRemoveFromCart)).click();
+        logger.info("Click on button remove from cart");
     }
 
     public String getTextMessageShoesInCart() {
-        return driver.findElement(By.xpath(messageShoesInCart)).getText();
+        String actualResult = driver.findElement(By.xpath(messageShoesInCart)).getText();
+        logger.info("Actual Header is: " + actualResult);
+        return actualResult;
     }
 
     public String getTextHeaderEmptyCart() {
         Waiter.wait(headerEmptyCart);
-        return driver.findElement(By.xpath(headerEmptyCart)).getText();
+        String actualResult = driver.findElement(By.xpath(headerEmptyCart)).getText();
+        logger.info("Actual Header is: " + actualResult);
+        return actualResult;
     }
 
     public void addItemToCart() {

@@ -2,6 +2,8 @@ package by.itacademy.moskalew.pages;
 
 import by.itacademy.moskalew.driver.SingletonWebDriver;
 import by.itacademy.moskalew.utils.Waiter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -16,8 +18,7 @@ public class ReebokSearchPage extends BasePage {
     private String searchResult = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerSearchResult = "//h6[@class='tag_h6_small--1VdSQ' and text()='Your Search results for:']";
     private String searchProductCardName = "//p[@class='tag_p--1xo5V  product-card-name--9ffy7']";
-    private static final String SEARCH_REQUEST = "Nano X4 Women'S Training Shoes";
-
+    private static final Logger logger = LogManager.getLogger();
 
     public ReebokSearchPage() {
         this.driver = SingletonWebDriver.getDriver();
@@ -26,33 +27,34 @@ public class ReebokSearchPage extends BasePage {
     public void clickButtonSearch() {
         driver.findElement(By.xpath(buttonSearch)).click();
         Waiter.wait(headerSearchResult);
+        logger.info("Click on Search button");
     }
 
-    public void sendKeysInputSearch(String search) {
-        driver.findElement(By.xpath(inputSearch)).sendKeys(search);
+    public void sendKeysInputSearch(String searchRequest) {
+        driver.findElement(By.xpath(inputSearch)).sendKeys(searchRequest);
         Waiter.wait(buttonResetSearch);
+        logger.info("Search request has been entered: " + searchRequest);
     }
 
     public String getTextSearchResult() {
-        return driver.findElement(By.xpath(searchResult)).getText();
+        String actualResult = driver.findElement(By.xpath(searchResult)).getText();
+        logger.info("Actual search request is: " + actualResult);
+        return actualResult;
     }
 
-    public List<WebElement> getProductCards() {
-        return driver.findElements(By.xpath(searchProductCardName));
-    }
-
-    public Set<String> getExpectedSearchItemsList() {
-        Set<String> expectedSearchItemsList = new TreeSet<>();
-        expectedSearchItemsList.add(SEARCH_REQUEST);
-        return expectedSearchItemsList;
+    public int getNumberOfProductCards() {
+        int actualResult = driver.findElements(By.xpath(searchProductCardName)).size();
+        logger.info("Actual number of founded objects is: " + actualResult);
+        return actualResult;
     }
 
     public Set<String> getActualSearchItemList() {
-        List<WebElement> searchItems = getProductCards();
+        List<WebElement> searchItems = driver.findElements(By.xpath(searchProductCardName));
         Set<String> searchItemsString = new TreeSet<>();
         for (WebElement searchItem : searchItems) {
             searchItemsString.add(searchItem.getText());
         }
+        logger.info("Actual set of items is: " + searchItemsString);
         return searchItemsString;
     }
 
