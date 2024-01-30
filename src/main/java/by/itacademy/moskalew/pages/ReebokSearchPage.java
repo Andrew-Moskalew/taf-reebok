@@ -16,9 +16,6 @@ public class ReebokSearchPage extends BasePage {
     private String searchResult = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
     private String headerSearchResult = "//h6[@class='tag_h6_small--1VdSQ' and text()='Your Search results for:']";
     private String searchProductCardName = "//p[@class='tag_p--1xo5V  product-card-name--9ffy7']";
-    public static final String SEARCH_REQUEST = "Nano X4 Women'S Training Shoes";
-    public static final String SEARCH_RESPONSE_NAME_OF_ITEM = "”NANO X4 WOMEN'S TRAINING SHOES”";
-    public static final int SEARCH_RESPONSE_NUMBER_OF_ITEMS = 6;
 
     public ReebokSearchPage() {
         this.driver = SingletonWebDriver.getDriver();

@@ -13,11 +13,6 @@ public class ReebokLoginPage extends BasePage {
     private String errorMessagePassword = "//p[@class='tag_p--1xo5V theme-error--3VYhx address-form-password--2OqFT']";
     private String errorMessageLoginForm = "//span[@class='registerForm-LoginError--1mbUB']";
     private String headerLogin = "//h1[@class='tag_h1_sm--2PQTc  registerForm-title--2CADy' and text()='Log In']";
-    public static final String ERROR_MESSAGE_ENTER_EMAIL = "Please enter your email";
-    public static final String ERROR_MESSAGE_ENTER_PASSWORD = "Please enter your password";
-    public static final String ERROR_MESSAGE_USER_NOT_FOUND = "Incorrect email/password – please check and retry";
-    public static final String ERROR_MESSAGE_INVALID_EMAIL_FORMAT = "Please enter email in valid format";
-    public static final String ERROR_MESSAGE_INVALID_PASSWORD_FORMAT = "Please enter password in valid format";
 
     public ReebokLoginPage() {
         this.driver = SingletonWebDriver.getDriver();
