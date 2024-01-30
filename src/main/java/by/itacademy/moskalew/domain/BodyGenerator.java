@@ -7,15 +7,15 @@ public class BodyGenerator {
     private static final Logger logger = LogManager.getLogger();
 
     public static String getBody(String email, String password) {
+        logger.info("Email has been added to body: " + email);
+        logger.info("Password has been added to body: " + password);
         if (email == null) {
-            logger.info("email is null");
             return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                     " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                     " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
                     "code\\n    message\\n    legacyUser\\n    resetPasswordTrigger\\n    __typename\\n  }\\n}\",\"variables\"" +
                     ":{\"email\":null,\"password\":\"" + password + "\"}}";
         } else if (password == null) {
-            logger.info("password is null");
             return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                     " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                     " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
@@ -30,6 +30,8 @@ public class BodyGenerator {
     }
 
     public static String getBody(int email, String password) {
+        logger.info("Email has been added to body: " + email);
+        logger.info("Password has been added to body: " + password);
         return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
@@ -38,6 +40,8 @@ public class BodyGenerator {
     }
 
     public static String getBody(String email, int password) {
+        logger.info("Email has been added to body: " + email);
+        logger.info("Password has been added to body: " + password);
         return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
@@ -46,6 +50,7 @@ public class BodyGenerator {
     }
 
     public static String getBodyWithInvalidEmailKey() {
+        logger.info("The request body was generated with an invalid Email key");
         return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
@@ -54,6 +59,7 @@ public class BodyGenerator {
     }
 
     public static String getBodyWithInvalidPasswordKey() {
+        logger.info("The request body was generated with an invalid Pasword key");
         return "{\"query\":\"mutation userAuthenticate($email: String!, $password: String!, $keepMeLoggedIn: Boolean)" +
                 " {\\n  userAuthenticate(\\n    email: $email\\n    password: $password\\n    keepMeLoggedIn: $keepMeLoggedIn\\n  )" +
                 " {\\n    id\\n    email\\n    name {\\n      firstname\\n      lastname\\n      __typename\\n    }\\n    keepUserLoggedIn\\n    " +
@@ -62,6 +68,7 @@ public class BodyGenerator {
     }
 
     public static String getBodySearch(String searchRequest) {
+        logger.info("The request body was generated with search request: " + searchRequest);
         return "{\"query\":\"query productSearch($category: String, $productType: String, $offset: Int, $limit: Int, $fetchType: String," +
                 " $keyword: String, $facets: [String], $sortBy: String, $sortOrder: String, $locationCode: String, $bruid: String, $deviceType: String," +
                 " $offerDate: String) {\\n  productSearch(\\n    category: $category\\n    productType: $productType\\n    offset: $offset\\n" +

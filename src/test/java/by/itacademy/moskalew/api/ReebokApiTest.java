@@ -19,9 +19,9 @@ public class ReebokApiTest {
     public void testLoginValidValues() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomValidPassword()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -29,9 +29,9 @@ public class ReebokApiTest {
     public void testLoginInvalidEmail() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomInvalidEmail(), RandomUserData.getRandomValidPassword()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -40,9 +40,9 @@ public class ReebokApiTest {
     public void testLoginPasswordWithoutUpperCaseChars() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutUpperCaseChars()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -50,9 +50,9 @@ public class ReebokApiTest {
     public void testLoginPasswordWithoutLowerCaseChars() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutLowerCaseChars()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -60,9 +60,9 @@ public class ReebokApiTest {
     public void testLoginPasswordWithoutDigits() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutDigits()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -70,9 +70,9 @@ public class ReebokApiTest {
     public void testLoginPasswordWithoutSplChars() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomPasswordWithoutSplChars()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -80,9 +80,9 @@ public class ReebokApiTest {
     public void testLoginInvalidLengthPassword() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), RandomUserData.getRandomInvalidLengthPassword()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -90,9 +90,9 @@ public class ReebokApiTest {
     public void testLoginWithEmptyValues() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody("", ""))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_INCORRET_VALUES));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageIncorretValues()));
         logger.info("Test passed \n");
     }
 
@@ -100,9 +100,9 @@ public class ReebokApiTest {
     public void testLoginEmailIsNull() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(null, RandomUserData.getRandomValidPassword()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_EMAIL_NULL));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageEmailNull()));
         logger.info("Test passed \n");
     }
 
@@ -110,9 +110,9 @@ public class ReebokApiTest {
     public void testLoginPasswordIsNull() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), null))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_PASSWORD_NULL));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessagePasswordNull()));
         logger.info("Test passed \n");
     }
 
@@ -121,8 +121,8 @@ public class ReebokApiTest {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         int email = RandomUserData.getRandomIntEmail();
         given().body(BodyGenerator.getBody(email, RandomUserData.getRandomValidPassword()))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
                 .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getExpectedResultIntEmail(email)));
         logger.info("Test passed \n");
     }
@@ -132,8 +132,8 @@ public class ReebokApiTest {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         int password = RandomUserData.getRandomIntPassword();
         given().body(BodyGenerator.getBody(RandomUserData.getRandomValidEmail(), password))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
                 .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getExpectedResultIntPassword(password)));
         logger.info("Test passed \n");
     }
@@ -142,9 +142,9 @@ public class ReebokApiTest {
     public void testLoginUpperCaseInEmailKey() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBodyWithInvalidEmailKey())
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_EMAIL_KEY_INVALID));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessageEmailKeyInvalid()));
         logger.info("Test passed \n");
     }
 
@@ -152,20 +152,21 @@ public class ReebokApiTest {
     public void testLoginUpperCaseInPasswordKey() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
         given().body(BodyGenerator.getBodyWithInvalidPasswordKey())
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.ERROR_MESSAGE_PASSWORD_KEY_INVALID));
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("errors.message[0]", equalTo(ReebokApiPage.getErrorMessagePasswordKeyInvalid()));
         logger.info("Test passed \n");
     }
 
     @Test
     public void testSearch() {
         logger.info("Started " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        logger.info("search request is: " + ReebokApiPage.SEARCH_REQUEST);
-        given().body(BodyGenerator.getBodySearch(ReebokApiPage.SEARCH_REQUEST))
-                .contentType(ReebokApiPage.CONTENT_TYPE)
-                .when().post(ReebokApiPage.URL)
-                .then().statusCode(200).body("data.productSearch.results.newProductName[0]", equalTo(ReebokApiPage.SEARCH_REQUEST));
+        logger.info("Search request is: " + ReebokApiPage.getSearchRequest());
+        given().body(BodyGenerator.getBodySearch(ReebokApiPage.getSearchRequest()))
+                .contentType(ReebokApiPage.getContentType())
+                .when().post(ReebokApiPage.getUrl())
+                .then().statusCode(200).body("data.productSearch.results.newProductName[0]", equalTo(ReebokApiPage.getSearchRequest()));
+        logger.info("Expected search response message is: " + ReebokApiPage.getSearchRequest());
         logger.info("Test passed \n");
     }
 
