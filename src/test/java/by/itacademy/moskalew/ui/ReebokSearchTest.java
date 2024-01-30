@@ -13,8 +13,8 @@ import java.util.TreeSet;
 public class ReebokSearchTest extends BaseTest {
 
     private static final String SEARCH_REQUEST = "Nano X4 Training Shoes";
-    private static final String SEARCH_RESPONSE_NAME_OF_ITEM = "”NANO X4 WOMEN'S TRAINING SHOES”";
-    private static final int SEARCH_RESPONSE_NUMBER_OF_ITEMS = 6;
+    private static final String SEARCH_RESPONSE_NAME_OF_ITEM = "”NANO X4 TRAINING SHOES”";
+    private static final int SEARCH_RESPONSE_NUMBER_OF_ITEMS = 12;
     ReebokSearchPage reebokSearchPage;
     private static final Logger logger = LogManager.getLogger();
 
