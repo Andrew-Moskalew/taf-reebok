@@ -46,7 +46,7 @@ public class ReebokCartTest extends BaseTest {
         reebokCartPage.clickButtonRemoveFromCart();
         String expectedResult = MESSAGE_EMPTY_CART;
         logger.info("Expected Header is: " + expectedResult);
-        Assertions.assertEquals(MESSAGE_EMPTY_CART, reebokCartPage.getTextHeaderEmptyCart());
+        Assertions.assertEquals(expectedResult, reebokCartPage.getTextHeaderEmptyCart());
         logger.info("Test passed \n");
     }
 

@@ -86,7 +86,7 @@ public class ReebokLoginTest extends BaseTest {
         reebokLoginPage.clickInputEmail();
         String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
         logger.info("Expected error message is: " + expectedResult);
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -97,7 +97,7 @@ public class ReebokLoginTest extends BaseTest {
         reebokLoginPage.clickInputEmail();
         String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
         logger.info("Expected error message is: " + expectedResult);
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -108,7 +108,7 @@ public class ReebokLoginTest extends BaseTest {
         reebokLoginPage.clickInputEmail();
         String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
         logger.info("Expected error message is: " + expectedResult);
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
@@ -119,7 +119,7 @@ public class ReebokLoginTest extends BaseTest {
         reebokLoginPage.clickInputEmail();
         String expectedResult = ERROR_MESSAGE_INVALID_PASSWORD_FORMAT;
         logger.info("Expected error message is: " + expectedResult);
-        Assertions.assertEquals(ERROR_MESSAGE_INVALID_PASSWORD_FORMAT, reebokLoginPage.getTextErrorMessagePassword());
+        Assertions.assertEquals(expectedResult, reebokLoginPage.getTextErrorMessagePassword());
         logger.info("Test passed \n");
     }
 
