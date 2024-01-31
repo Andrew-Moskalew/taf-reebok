@@ -17,7 +17,7 @@ public class ReebokCartPage extends BasePage{
     private String buttonCart = "//*[name()='svg' and @viewBox='0 0 122 100']";
     private String headerCart = "//h1[@class='tag_h1_sm--2PQTc']";
     private String headerEmptyCart = "//h1[@class='tag_h1_sm--2PQTc  cart-content--2qjcd']";
-    private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  category-title--rXaZj']";
+    private String headerWomen = "//h1[@class='tag_h1_w--3KHZV  catList-title--h96hG']";
     private String headerAddToCart = "//header[@class='tag_header--fSonA  mini-cart-body-product-title--29_H7']";
     private static final Logger logger = LogManager.getLogger();
 
